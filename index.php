@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
+    <title>TDQMILK123456</title>
+=======
     <title>TDQMILK123</title>
+>>>>>>> 4fa3cfd390016d3115392796146e8b635f964627
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
