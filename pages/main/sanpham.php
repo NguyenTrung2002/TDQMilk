@@ -5,11 +5,12 @@ $query_pro = mysqli_query($conn, $sql_pro);
 ?>
 <div class="container main">
     <div class="headline">
-        <h3>Sản phẩm khuyến mãi</h3>
+        <h3>Sản phẩm nổi bật</h3>
     </div>
     <ul class="products">
         <?php
         while ($row = mysqli_fetch_array($query_pro)) {
+            if($row['tinhtrang_sanpham'] == 2){
         ?>
             <li>
                 <div class="product-item">
@@ -27,6 +28,7 @@ $query_pro = mysqli_query($conn, $sql_pro);
                 </div>
             </li>
         <?php
+            }
         }
         ?>
     </ul>
