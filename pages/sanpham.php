@@ -15,14 +15,14 @@ $query_pro = mysqli_query($conn, $sql_pro);
             <li>
                 <div class="product-item">
                     <div class="product-top">
-                        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="product-thump">
+                        <a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="product-thump">
                             <img src="admincp/modules/quanlysanpham/Upload/<?php echo $row['hinhanh_sanpham'] ?>" alt="">
                         </a>
-                        <a href="" class="buy-now">Chi tiết sản phẩm</a>
+                        <a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="buy-now">Chi tiết sản phẩm</a>
                     </div>
                     <div class="product-info">
-                        <a href="" class="product-cat"><?php echo $row['ten_sanpham'] ?></a>
-                        <a href="" class="product-name"><?php echo $row['ten_sanpham'] ?></a>
+                        <a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row['id_danhmuc'] ?>" class="product-cat"><?php echo $row['ten_danhmuc'] ?></a>
+                        <a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="product-name"><?php echo $row['ten_sanpham'] ?></a>
                         <div class="product-price"><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></div>
                     </div>
                 </div>
