@@ -4,6 +4,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #e0edff;
 }
+.dropdown:hover .dropdown-menu {display: block;}
 .bar1,
 .bar2,
 .bar3 {
