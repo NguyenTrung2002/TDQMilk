@@ -65,16 +65,15 @@ a {
 
 }
 
-ul#main-menu {
-    overflow-x: auto;
-    display: flex;
-    justify-content: center;
-}
-
-ul#main-menu a {
-    padding: 0px 10px;
-}
-
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+.pagination a:hover {background-color: #ddd;}
 .headline {
     text-align: center;
     padding: 40px 0px;
@@ -83,7 +82,7 @@ ul#main-menu a {
 .headline h3 {
     font-size: 24px;
     padding: 20px 10px;
-    border: 1px solid #000;
+    
     text-transform: uppercase;
     display: inline-block;
     font-weight: 600;
