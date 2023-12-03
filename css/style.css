@@ -77,7 +77,7 @@ a {
 .pagination a:hover {background-color: #ddd;}
 .headline {
     text-align: center;
-    padding: 40px 0px;
+    padding-top: 40px;
 }
 
 .headline h3 {
@@ -167,4 +167,15 @@ ul.products li:hover a.buy-now {
 ul.products li:hover .product-top .product-thump img {
     filter: opacity(80%);
 }
-
+.hinhanh_sanpham img {
+    width: 50%;
+    height: 50%;
+}
+.hinhanh_sanpham {
+    display: flex;
+    justify-content: space-between;
+}
+.chitiet_sanpham p {
+    font-size: 18px;
+    display: block;
+}
