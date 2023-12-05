@@ -20,7 +20,6 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                         <?php
                         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
                         ?>
-
                             <li class="nav-item">
                                 <a class="dropdown-item" aria-current="page" href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></a>
                             </li>
@@ -42,14 +41,15 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <li><a href="#">Tuyển dụng</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
             </ul>
-            <form class="navbar-form navbar-right" action="/action_page.php">
+            <form class="navbar-form navbar-right" action="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <input type="text" class="form-control" placeholder="Search" name="tukhoa">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default" name="timkiem">Submit</button>
             </form>
         </div>
 

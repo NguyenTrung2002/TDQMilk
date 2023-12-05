@@ -1,12 +1,14 @@
 <?php
+if(isset($_POST['timkiem'])){
+    $tukhoa = $_POST['tukhoa'];
+}
 $sql_pro = "SELECT * FROM tbl_sanpham, tbl_danhmuc WHERE tbl_sanpham.id_danhmuc = tbl_danhmuc.id_danhmuc
-     ORDER BY tbl_sanpham.id_sanpham DESC";
+     AND tbl_sanpham.ten_sanpham LIKE '%".$tukhoa."%'";
 $query_pro = mysqli_query($conn, $sql_pro);
-include("../pages/menu.php");
 ?>
 <div class="container main">
     <div class="headline">
-        <h3>Tất cả sản phẩm</h3>
+        <h3>Tìm kiếm: <?php echo $_POST['tukhoa']?></h3>
     </div>
     <ul class="products">
         <?php

@@ -16,10 +16,9 @@
         <?php
         include("../admincp/config/config.php");
         include("../pages/navbar.php");
-        include("../pages/menu.php");
         include("danhmuc.php");
         ?>
-        </div>
+    </div>
 
 
     </div>
