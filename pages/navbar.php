@@ -10,18 +10,18 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:8080/TDQMilk/">TDQMILK</a>
+            <a class="navbar-brand" href="/TDQMilk/index.php">TDQMILK</a>
         </div>
         <div class="navbar-collapse collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="http://localhost:8080/TDQMilk/danhmuc/index.php">Danh mục sản phẩm<span class="caret"></span></a>
+                    <a class="dropdown-toggle" href="/TDQMilk/danhmuc/index.php">Danh mục sản phẩm<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
                         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
                         ?>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></a>
+                                <a class="dropdown-item" aria-current="page" href="/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></a>
                             </li>
                         <?php
                         }
@@ -41,11 +41,11 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <li><a href="#">Tuyển dụng</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
+                <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
             </ul>
-            <form class="navbar-form navbar-right" action="http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
+            <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="tukhoa">
                 </div>
