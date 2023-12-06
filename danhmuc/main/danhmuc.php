@@ -1,4 +1,5 @@
 <?php
+include("../pages/menu.php");
 $sql_pro = "SELECT * FROM tbl_sanpham WHERE tbl_sanpham.id_danhmuc = '$_GET[id]'
      ORDER BY id_sanpham DESC";
 $query_pro = mysqli_query($conn, $sql_pro);
