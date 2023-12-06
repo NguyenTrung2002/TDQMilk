@@ -10,7 +10,6 @@ session_start();
   <h3>Giỏ hàng</h3>
 </div>
 <div class="container" style="overflow-x:auto;">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <table style="width: 100%;text-align:center" border="2">
@@ -39,13 +38,13 @@ session_start();
         <th><?php echo $cart_item['tensanpham'] ?></th>
         <th><img src="../admincp/modules/quanlysanpham/Upload/<?php echo $cart_item['hinhanh'];?>" width="100px" height="100px"></th>
         <th>
-          <a href="http://localhost:8080/TDQMilk/danhmuc/main/themgiohang.php?cong=<?php echo $cart_item['id'] ?>"><i class="fa-solid fa-plus"></i></a>
+          <a href="/TDQMilk/danhmuc/main/themgiohang.php?cong=<?php echo $cart_item['id'] ?>"><i class="fa-solid fa-plus"></i></a>
           <?php echo $cart_item['soluong'] ?>
-          <a href="http://localhost:8080/TDQMilk/danhmuc/main/themgiohang.php?tru=<?php echo $cart_item['id'] ?>"><i class="fa-solid fa-minus"></i></a>
+          <a href="/TDQMilk/danhmuc/main/themgiohang.php?tru=<?php echo $cart_item['id'] ?>"><i class="fa-solid fa-minus"></i></a>
         </th>
         <th><?php echo number_format($cart_item['giasanpham']) . 'VNĐ' ?></th>
         <th><?php echo number_format($thanhtien) . 'VNĐ' ?></th>
-        <th><a href="http://localhost:8080/TDQMilk/danhmuc/main/themgiohang.php?xoa=<?php echo $cart_item['id'] ?>">Xóa</a></th>
+        <th><a href="/TDQMilk/danhmuc/main/themgiohang.php?xoa=<?php echo $cart_item['id'] ?>">Xóa</a></th>
       </tr>
 
     <?php
