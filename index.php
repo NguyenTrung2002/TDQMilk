@@ -14,8 +14,14 @@
 <body>
     <div class="wrapper">
         <?php
+            session_start();
             include("admincp/config/config.php");
-            include("pages/navbar.php");
+            if(isset($_SESSION['signup'])){
+                include("pages/navbar2.php");
+            } else{
+                include("pages/navbar.php");
+            }
+            session_destroy();
             include("pages/banner.php");
             include("pages/sanpham.php");
         ?>

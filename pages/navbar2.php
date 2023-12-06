@@ -41,9 +41,13 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 </li>
                 <li><a href="#">Tuyển dụng</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+            <ul class="nav navbar-nav navbar-right" >
+            <?php
+                if(isset($_SESSION['signup'])){
+                    echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>'.'<span style="color:red; position: relative; top: 14px">'.$_SESSION['signup'].'</span>';
+                }
+            ?>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Thoát </a></li>
             </ul>
             <form class="navbar-form navbar-right" action="/action_page.php">
                 <div class="form-group">
