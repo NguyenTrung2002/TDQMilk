@@ -16,7 +16,7 @@ if(isset($_GET['tru'])){
             }
             $_SESSION['cart'] = $product;
         }
-        header('Location: http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang');
+        header('Location: /TDQMilk/danhmuc/index.php?quanly=giohang');
 
     }
 }
@@ -35,7 +35,7 @@ if(isset($_GET['cong'])){
             }
             $_SESSION['cart'] = $product;
         }
-        header('Location: http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang');
+        header('Location: /TDQMilk/danhmuc/index.php?quanly=giohang');
 
     }
 }
@@ -46,7 +46,7 @@ if(isset($_SESSION['cart'])&&isset($_GET['xoa'])){
             $product[] = array('tensanpham'=>$cart_item['tensanpham'], 'id'=>$cart_item['id'], 'soluong'=>$cart_item['soluong'], 'giasanpham'=>$cart_item['giasanpham'], 'hinhanh'=>$cart_item['hinhanh'], 'masanpham'=>$cart_item['masanpham']);
         }
         $_SESSION['cart'] = $product;
-        header('Location: http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang');
+        header('Location: /TDQMilk/danhmuc/index.php?quanly=giohang');
     }
 }
 if(isset($_POST['themgiohang'])){
@@ -81,7 +81,7 @@ if(isset($_POST['themgiohang'])){
             $_SESSION['cart'] = $new_product;
         }
     }
-    header('Location: http://localhost:8080/TDQMilk/danhmuc/index.php?quanly=giohang');
+    header('Location: /TDQMilk/danhmuc/index.php?quanly=giohang');
 }
 print_r($_SESSION['cart']);
 ?>
