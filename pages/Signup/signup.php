@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("connection.php");
+    include("../../admincp/config/config.php");
     if(isset($_POST['submit'])){
         $username = mysqli_real_escape_string($conn,$_POST['username']);
         $birthday = mysqli_real_escape_string($conn,$_POST['birthday']);
@@ -24,7 +24,7 @@
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     echo '<script>
-                        window.location.href="http://localhost/TDQMilk/";
+                        window.location.href="/TDQMilk/";
                         alert("Đăng kí thành công");
                     </script>';
                     $_SESSION['signup'] = $username; 

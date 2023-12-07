@@ -24,6 +24,10 @@
             session_destroy();
             include("pages/banner.php");
             include("pages/sanpham.php");
+            include("pages/khuyenmai.php");
+            include("pages/cuahang.php");
+            include("pages/tintuc.php");
+
         ?>
 
         
