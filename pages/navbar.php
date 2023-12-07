@@ -28,21 +28,20 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                         ?>
                     </ul>
                 </li>
-                <li><a href="#">Khuyến mãi</a></li>
-                <li><a href="#">Cửa hàng</a></li>
+                <li><a href="/TDQMilk/index.php#khuyenmai">Khuyến mãi</a></li>
+                <li><a href="/TDQMilk/index.php#cuahang">Cửa hàng</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Truyền thông<span class="caret"></span></a>
+                    <a class="dropdown-toggle" href="#tintuc">Tin tức<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Page 1-1</a></li>
                         <li><a href="#">Page 1-2</a></li>
                         <li><a href="#">Page 1-3</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Tuyển dụng</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
-                <li><a href="pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
+                <li><a href="TDQMilk/pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">

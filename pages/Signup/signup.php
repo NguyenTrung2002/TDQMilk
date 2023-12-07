@@ -24,7 +24,7 @@
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     echo '<script>
-                        window.location.href="http://localhost/TDQMilk/";
+                        window.location.href="/TDQMilk/";
                         alert("Đăng kí thành công");
                     </script>';
                     $_SESSION['signup'] = $username; 
