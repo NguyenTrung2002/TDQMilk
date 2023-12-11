@@ -30,14 +30,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 </li>
                 <li><a href="/TDQMilk/index.php#khuyenmai">Khuyến mãi</a></li>
                 <li><a href="/TDQMilk/index.php#cuahang">Cửa hàng</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#tintuc">Tin tức<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                </li>
+                <li><a href="/TDQMilk/index.php#tintuc">Tin tức</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
