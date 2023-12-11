@@ -4,7 +4,7 @@
 ?>
 <p>Liệt kê sản phẩm</p>
 <center>
-    <form method="post" action = "modules/quanlydanhmucsanpham/xuly.php">
+    <form method="post" action = "modules/quanlysanpham/xuly.php">
     <table class="table table-bordered border-primary" style="text-align: center;">
   <thead>
     <tr>

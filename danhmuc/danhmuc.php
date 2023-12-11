@@ -8,8 +8,8 @@
                 include("main/danhmuc.php");
             }elseif($tam == 'giohang'){
                 include("main/giohang.php");
-            // }elseif($tam == 'tintuc'){
-            //     include("main/tintuc.php");
+            }elseif($tam == 'tintuc'){
+                include("main/tintuc.php");
             // }elseif($tam == 'lienhe'){
             //     include("main/lienhe.php");
             }elseif($tam == 'sanpham'){
