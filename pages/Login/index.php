@@ -1,5 +1,5 @@
 <?php
-     include("connection.php");
+     include("../../admincp/config/config.php");
 ?>
 <!DOCTYPE html>
 <html>
