@@ -15,23 +15,16 @@
 <body>
     <div class="wrapper">
         <?php
-            session_start();
-            include("admincp/config/config.php");
-            if(isset($_SESSION['login'])){
-                include("pages/navbar2.php");
-            } else{
-                include("pages/navbar.php");
-            }
-            include("pages/banner.php");
-            include("pages/sanpham.php");
-            include("pages/khuyenmai.php");
-            include("pages/cuahang.php");
-            include("pages/tintuc.php");
+        session_start();
+        include("admincp/config/config.php");
+        include("pages/navbar.php");
+        include("pages/banner.php");
+        include("pages/sanpham.php");
+        include("pages/khuyenmai.php");
+        include("pages/cuahang.php");
+        include("pages/tintuc.php");
 
         ?>
-
-        
-        
     </div>
     <script>
         $(document).ready(function() {

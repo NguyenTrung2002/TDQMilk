@@ -33,10 +33,21 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <li><a href="/TDQMilk/index.php#tintuc">Tin tức</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
-                <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button> -->
-                <li><a href="/TDQMilk/pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
-                <li><a href="/TDQMilk/pages/Login/index.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                <?php
+                if (isset($_SESSION['login'])) {
+                ?>
+                    <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
+                    <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
+                <?php
+                    echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>' . '<span style="color:red; position: relative; top: 14px">' . $_SESSION['login'] . '</span>';
+                } else {
+                ?>
+                    <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button> -->
+                    <li><a href="/TDQMilk/pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
+                    <li><a href="/TDQMilk/pages/Login/index.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                <?php
+                }
+                ?>
             </ul>
             <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
                 <div class="form-group">
