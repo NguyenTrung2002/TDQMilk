@@ -10,7 +10,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="/TDQMilk/">TDQMILK</a>
+            <a class="navbar-brand" href="/TDQMilk/index.php">TDQMILK</a>
         </div>
         <div class="navbar-collapse collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -20,7 +20,6 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                         <?php
                         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
                         ?>
-
                             <li class="nav-item">
                                 <a class="dropdown-item" aria-current="page" href="/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></a>
                             </li>
@@ -41,19 +40,19 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 </li>
                 <li><a href="#">Tuyển dụng</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" >
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
+                <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
             <?php
-                if(isset($_SESSION['signup'])){
-                    echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>'.'<span style="color:red; position: relative; top: 14px">'.$_SESSION['signup'].'</span>';
+                if(isset($_SESSION['login'])){
+                    echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>'.'<span style="color:red; position: relative; top: 14px">'.$_SESSION['login'].'</span>';
                 }
             ?>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Thoát </a></li>
-            </ul>
-            <form class="navbar-form navbar-right" action="/action_page.php">
+            <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <input type="text" class="form-control" placeholder="Search" name="tukhoa">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default" name="timkiem">Submit</button>
             </form>
         </div>
 

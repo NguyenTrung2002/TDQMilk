@@ -14,8 +14,13 @@
 <body>
     <div class="wrapper">
         <?php
+        session_start();
         include("../admincp/config/config.php");
-        include("../pages/navbar.php");
+        if(isset($_SESSION['login'])){
+            include("../pages/navbar2.php");
+        } else{
+            include("../pages/navbar.php");
+        }
         include("danhmuc.php");
         ?>
     </div>
