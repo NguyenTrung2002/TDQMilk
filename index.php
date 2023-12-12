@@ -16,12 +16,11 @@
         <?php
             session_start();
             include("admincp/config/config.php");
-            if(isset($_SESSION['signup'])){
+            if(isset($_SESSION['login'])){
                 include("pages/navbar2.php");
             } else{
                 include("pages/navbar.php");
             }
-            session_destroy();
             include("pages/banner.php");
             include("pages/sanpham.php");
         ?>

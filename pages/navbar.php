@@ -42,8 +42,9 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
-                <li><a href="pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button> -->
+                <li><a href="/TDQMilk/pages/Signup/index.php"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
+                <li><a href="/TDQMilk/pages/Login/index.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
                 <div class="form-group">
