@@ -145,23 +145,10 @@ body {
 </style>
 </head>
 <body>
-<div class="notice">
-    
-    
-    <h2>Đăng nhập</h2>
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    
-</div>
-
-
-<div id="id01" class="modal">
   
   <form class="modal-content animate" action="login.php" method="POST">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="useravatar.jpg" alt="Avatar" class="avatar">
-    </div>
+
 
     <div class="container">
       <label for="username"><b>Tài khoản</b></label>
@@ -182,18 +169,8 @@ body {
       <span class="psw-yet">Chưa có tài khoản hãy <a href="../Signup/index.php">đăng kí?</a></span>
     </div>
   </form>
-</div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+
 </body>
 </html>

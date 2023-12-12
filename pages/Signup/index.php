@@ -144,20 +144,9 @@ body {
 #myInput{
   margin-bottom: 10px;
 }
+
 </style>
 <body>
-
-<div class="notice">
-    
-    <h2>Hãy đăng kí tài khoản để có cho mình những trải nghiệm tốt nhất về sản phẩm của chúng tôi</h2>
-
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button>
-    
-</div>
-
-
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form class="modal-content" action="signup.php" method ="POST">
     <div class="container">
       <h1>Đăng kí</h1>
@@ -203,7 +192,7 @@ body {
       </div>
     </div>
   </form>
-</div>
+
 
 <script>
 // Get the modal
