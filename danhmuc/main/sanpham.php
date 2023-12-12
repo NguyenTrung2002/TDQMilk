@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../pages/menu.php");
 $sql_chitiet = "SELECT * FROM tbl_sanpham, tbl_danhmuc WHERE tbl_sanpham.id_danhmuc = tbl_danhmuc.id_danhmuc
     AND tbl_sanpham.id_sanpham = '$_GET[id]' LIMIT 1";
@@ -16,7 +17,15 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
                     <p>Mã sản phẩm: <?php echo $row_chitiet['ma_sanpham'] ?></p>
                     <p>Danh mục sản phẩm: <?php echo $row_chitiet['ten_danhmuc'] ?></p>
                     <p>Tóm tắt: <?php echo $row_chitiet['tomtat_sanpham'] ?></p>
+                    <?php if(isset($_SESSION['login'])){?>
                     <button type="submit" name="themgiohang" class="btn btn-danger">Thêm giỏ hàng</button>
+                    <?php
+                    // }else{
+                    ?>
+                    <!-- <button type="submit" name="themgiohang" class="btn btn-danger" disabled>Thêm giỏ hàng</button> -->
+                    <?php
+                    }
+                    ?>
                 </div>
             </form>
         </div>
