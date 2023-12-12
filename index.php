@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tintuc.css">
 </head>
 
 <body>
@@ -23,6 +24,10 @@
             }
             include("pages/banner.php");
             include("pages/sanpham.php");
+            include("pages/khuyenmai.php");
+            include("pages/cuahang.php");
+            include("pages/tintuc.php");
+
         ?>
 
         
