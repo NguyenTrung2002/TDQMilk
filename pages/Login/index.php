@@ -164,27 +164,6 @@ body {
       <span class="psw"><a href="../Password-reset/resetpsw.php">Quên mật khẩu?</a></span>
       <span class="psw-yet">Chưa có tài khoản hãy <a href="../Signup/index.php">đăng kí?</a></span>
     </div>
-  </form>
-  <script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "";
-  }
-}
-</script>
-<h1 id ="text">Hello</h1>
-    <button id="mybtn" onclick="displayText()">Change</button>
-    <input type="" id="changetext">
-    <script>        
-        function displayText() {
-            let newtext = document.getElementById("changetext")
-            document.getElementById("text").innerHTML = newtext.value;
-        }
-    </script>
-
+</form>
 </body>
 </html>
