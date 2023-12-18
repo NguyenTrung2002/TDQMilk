@@ -7,6 +7,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
 require 'vendor/autoload.php';
 function send_password_reset($get_name, $get_email,$token){
     $mail = new PHPMailer(true);
@@ -30,7 +33,7 @@ function send_password_reset($get_name, $get_email,$token){
         <h2>Xin chào<h2>
         <h3>Bạn đang nhận được email bởi vì chúng tôi vừa gửi password reset yêu cầu đến tài khoản của bạn.</h3>
         <br/><br/>
-        <a href ='http://localhost/TDQMilk/pages/Password-reset/password-change.php?token=$token&email=$get_email'> Click me </a>
+        <a href ='http://localhost:8080/TDQMilk/pages/Password-reset/password-change.php?token=$token&email=$get_email'> Click me </a>
     ";
 
     $mail->Body = $email_template;
