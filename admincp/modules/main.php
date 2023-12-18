@@ -29,6 +29,10 @@
                 include("modules/quanlytintuc/lietke.php");
             }elseif($tam == 'quanlytintuc' && $query == 'sua'){
                 include('modules/quanlytintuc/sua.php');
+            }elseif($tam == 'quanlydonhang' && $query == 'lietke'){
+                include('modules/quanlydonhang/lietkedonhang.php');
+            }elseif($tam == 'quanlydonhang' && $query == 'lietkesanpham'){
+                include('modules/quanlydonhang/lietkesanphamdonhang.php');
             }else{
                 include("modules/dashboard.php");
             }

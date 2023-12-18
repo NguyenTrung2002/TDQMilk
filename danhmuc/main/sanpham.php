@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../pages/menu.php");
 $sql_chitiet = "SELECT * FROM tbl_sanpham, tbl_danhmuc WHERE tbl_sanpham.id_danhmuc = tbl_danhmuc.id_danhmuc
     AND tbl_sanpham.id_sanpham = '$_GET[id]' LIMIT 1";
@@ -9,7 +8,7 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
     <div class="container chitiet">
         <div class="hinhanh_sanpham">
             <img src="../admincp/modules/quanlysanpham/Upload/<?php echo $row_chitiet['hinhanh_sanpham'] ?>" alt="">
-            <form method="POST" action="/TDQMilk/danhmuc/main/themgiohang.php?idsanpham=<?php echo $row_chitiet['id_sanpham'] ?>">
+            <form method="POST" action="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?idsanpham=<?php echo $row_chitiet['id_sanpham'] ?>">
                 <div class="chitiet_sanpham">
                     <h3 style="font-size: 30px; font-weight: 600;">Tên sản phẩm: <?php echo $row_chitiet['ten_sanpham'] ?></h3>
                     <p>Số lượng sản phẩm: <?php echo $row_chitiet['soluong_sanpham'] ?></p>
