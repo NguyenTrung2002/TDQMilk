@@ -28,6 +28,7 @@
                         window.location.href="../Login/index.php";
                     </script>';
                     $_SESSION['signup'] = $username; 
+
                 }
             } else {
                 echo '<script>
