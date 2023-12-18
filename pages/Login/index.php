@@ -160,7 +160,7 @@ body {
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    <a href="/TDQMilk/index.php" style="text-decoration: none; color: #fff"><button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></a>
       <span class="psw"><a href="../Password-reset/resetpsw.php">Quên mật khẩu?</a></span>
       <span class="psw-yet">Chưa có tài khoản hãy <a href="../Signup/index.php">đăng kí?</a></span>
     </div>
