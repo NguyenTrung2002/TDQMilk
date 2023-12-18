@@ -2,7 +2,6 @@
     session_start();
     include("../../admincp/config/config.php");
     if(isset($_POST['submit'])){
-    
         $username = mysqli_real_escape_string($conn,$_POST['username']);
         $password = mysqli_real_escape_string($conn,$_POST['psw']);
 
@@ -13,6 +12,8 @@
 
         if($row){
             if(password_verify($password, $row["password"])){
+                $_SESSION['login'] = $username;
+                $_SESSION['id'] = $row['id'];
                 if($row["username"] == 'admin'){
                     echo '<script>
                         window.location.href="../../admincp";
