@@ -13,11 +13,17 @@
 
         if($row){
             if(password_verify($password, $row["password"])){
-                
-                $_SESSION['login'] = $username;
+                if($row["username"] == 'admin'){
+                    echo '<script>
+                        window.location.href="../../admincp";
+                    </script>';
+                }else{
+                    $_SESSION['login'] = $username;
                 echo '<script>
-                window.location.href="../../index.php";
-            </script>';
+                    window.location.href="../../index.php";
+                </script>';
+                }
+                
             }else{
                 echo '<script>
                 alert("Mật khẩu không hợp lệ");
