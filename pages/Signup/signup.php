@@ -24,15 +24,16 @@
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     echo '<script>
-                        window.location.href="/TDQMilk/";
-                        alert("Đăng kí thành công");
+                        alert("Đăng kí thành công, vui lòng đăng nhập");
+                        window.location.href="../Login/index.php";
                     </script>';
                     $_SESSION['signup'] = $username; 
+
                 }
             } else {
                 echo '<script>
                 window.location.href="index.php";
-                alert("Passwords do not match !!");
+                alert("Mật khẩu không khớp !!");
             </script>';
             }
         } else {

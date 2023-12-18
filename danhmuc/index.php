@@ -9,13 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/buttontop.css">
+
 </head>
 
 <body>
     <div class="wrapper">
         <?php
+        session_start();
         include("../admincp/config/config.php");
         include("../pages/navbar.php");
+        include("../pages/buttontop.php");
         include("danhmuc.php");
         ?>
     </div>

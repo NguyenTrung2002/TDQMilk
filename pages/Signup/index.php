@@ -144,37 +144,26 @@ body {
 #myInput{
   margin-bottom: 10px;
 }
+
 </style>
 <body>
-
-<div class="notice">
-    
-    <h2>Hãy đăng kí tài khoản để có cho mình những trải nghiệm tốt nhất về sản phẩm của chúng tôi</h2>
-
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
-    <button onclick="document.getElementById('id01').style.display='none'" style="width:auto;">Back</button>
-</div>
-
-
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form class="modal-content" action="signup.php" method ="POST">
     <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
+      <h1>Đăng kí</h1>
+      <p>Hãy điền đủ thông tin để tạo tài khoản.</p>
       <hr>
-      <label for="username"><b>Username</b></label>
+      <label for="username"><b>Tài khoản</b></label>
       <input type="text" placeholder="Enter Username" name="username" required>
 
       <form action="/action_page.php">
-        <label for="birthday"><b>Birthday</b></label> <br>
+        <label for="birthday"><b>Ngày sinh</b></label> <br>
         <input type="date" id="birthday" name="birthday">
       </form> <br>
 
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
 
-      <label for="psw"><b>Password</b></label>
+      <label for="psw"><b>Mật khẩu</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="myInput" required>
       <input type="checkbox" onclick="myFunction()" id ="check">Show Password <br>
       <script>
@@ -188,14 +177,14 @@ body {
         } 
       </script>
 
-      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <label for="psw-repeat"><b>Nhập lại mật khẩu</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
       
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
 
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>Bạn đã có tài khoản hãy <a href="../Login/index.php" style="color:dodgerblue">Đăng nhập</a>.</p>
 
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
@@ -203,7 +192,7 @@ body {
       </div>
     </div>
   </form>
-</div>
+
 
 <script>
 // Get the modal
@@ -216,7 +205,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 
 </body>
 </html>
