@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("../../../pages/Password-reset/password-reset-code.php");
 include('../../../admincp/config/config.php');
 $firstname = $_POST['firstname'];
 $email = $_POST['email'];
@@ -31,6 +32,11 @@ if (isset($_POST['dathang'])) {
             mysqli_query($conn, $sql_xoa);
         }
     }
+    $tieude = 'Đặt hàng sữa tại suatuoinguyenchat.com thành công!';
+    $noidung = "Cảm ơn quý khách đã đặt hàng, chúng tôi sẽ liên lạc với bạn để xác nhận đơn hàng";
+    $maildathang = $row_donhang['email_kh'];
+    $mail = new Mailer;
+    $mail -> dathangmail($tieude, $noidung, $maildathang);
     echo '<script>
     alert("Bạn đã đặt hàng thành công, vui lòng quay về trang chủ");
     window.location.href="/TDQMilk/index.php";
