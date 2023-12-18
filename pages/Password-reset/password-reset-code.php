@@ -1,6 +1,5 @@
 <?php
-session_start();
-include("../../admincp/config/config.php");
+include("../../../admincp/config/config.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -38,6 +37,30 @@ function send_password_reset($get_name, $get_email,$token){
 
     $mail->Body = $email_template;
     $mail->send();
+}
+class Mailer{
+    function dathangmail($tieude, $noidung, $maildathang){
+        $mail = new PHPMailer(true);
+        $mail -> CharSet = 'utf8';
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'anhduong180202@gmail.com';                     //SMTP username
+        $mail->Password   = 'hnbvyepqqlkdfqox';                               //SMTP password
+        $mail->SMTPSecure = 'tls';             //Enable implicit TLS encryption
+        $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    
+        //Recipients
+        $mail->setFrom('anhduong180202@gmail.com', 'Thông báo đơn hàng');
+        $mail->addAddress($maildathang);     //Add a recipient
+       
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = $tieude;
+     
+        $mail->Body = $noidung;
+        $mail->send();
+    }
 }
 if(isset($_POST['password_reset_link'])){
     $email = mysqli_real_escape_string($conn, $_POST['email']);

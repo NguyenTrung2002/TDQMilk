@@ -187,7 +187,7 @@ body {
       <p>Bạn đã có tài khoản hãy <a href="../Login/index.php" style="color:dodgerblue">Đăng nhập</a>.</p>
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <a href="/TDQMilk/index.php" style="text-decoration: none; color: #fff"><button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></a>
         <button type="submit" class="signupbtn" name ="submit">Sign Up</button>
       </div>
     </div>
