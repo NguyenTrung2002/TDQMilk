@@ -16,14 +16,16 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
                     <p>Mã sản phẩm: <?php echo $row_chitiet['ma_sanpham'] ?></p>
                     <p>Danh mục sản phẩm: <?php echo $row_chitiet['ten_danhmuc'] ?></p>
                     <p>Tóm tắt: <?php echo $row_chitiet['tomtat_sanpham'] ?></p>
-                    <?php if(isset($_SESSION['login'])){?>
-                    <button type="submit" name="themgiohang" class="btn btn-danger">Thêm giỏ hàng</button>
+                    <?php if(isset($_SESSION['login'])){
+                        if($row_chitiet['soluong_sanpham']>0){?>
+                        <button type="submit" name="themgiohang" class="btn btn-danger">Thêm giỏ hàng</button>
                     <?php
-                    // }else{
+                    }else{
                     ?>
-                    <!-- <button type="submit" name="themgiohang" class="btn btn-danger" disabled>Thêm giỏ hàng</button> -->
+                    <button type="submit" name="themgiohang" class="btn btn-danger" disabled>Sản phẩm hiện tại đã hết</button>
                     <?php
                     }
+                }
                     ?>
                 </div>
             </form>

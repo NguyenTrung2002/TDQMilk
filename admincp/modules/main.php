@@ -33,6 +33,8 @@
                 include('modules/quanlydonhang/lietkedonhang.php');
             }elseif($tam == 'quanlydonhang' && $query == 'lietkesanpham'){
                 include('modules/quanlydonhang/lietkesanphamdonhang.php');
+            }elseif($tam == 'dangxuat' && $query == 'dangxuat'){
+                include('../pages/Logout/logout.php');
             }else{
                 include("modules/dashboard.php");
             }
