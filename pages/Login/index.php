@@ -176,15 +176,5 @@ window.onclick = function(event) {
   }
 }
 </script>
-<h1 id ="text">Hello</h1>
-    <button id="mybtn" onclick="displayText()">Change</button>
-    <input type="" id="changetext">
-    <script>        
-        function displayText() {
-            let newtext = document.getElementById("changetext")
-            document.getElementById("text").innerHTML = newtext.value;
-        }
-    </script>
-
 </body>
 </html>

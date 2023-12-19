@@ -144,10 +144,24 @@ body {
 #myInput{
   margin-bottom: 10px;
 }
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
 
 </style>
 <body>
-  <form class="modal-content" action="signup.php" method ="POST">
+  <form class="modal-content animate" action="signup.php" method ="POST">
     <div class="container">
       <h1>Đăng kí</h1>
       <p>Hãy điền đủ thông tin để tạo tài khoản.</p>
