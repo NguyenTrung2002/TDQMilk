@@ -11,4 +11,7 @@
   <li class="nav-item">
     <a class="nav-link" href="index.php?action=quanlydonhang&query=lietke">Quản lý đơn hàng</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="index.php?action=dangxuat&query=dangxuat">Đăng xuất</a>
+  </li>
 </ul>

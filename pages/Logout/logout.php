@@ -2,7 +2,7 @@
 session_start();
 session_destroy();
 echo '<script>
-        window.location.href="../../index.php";
+        window.location.href="/TDQMilk/index.php";
     </script>';
 exit;
 ?>
