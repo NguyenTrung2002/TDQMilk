@@ -104,7 +104,7 @@ ul.products li {
 
 ul.products li img {
     max-width: 100%;
-    height: auto;
+    height: 250px;
 }
 
 .product-info a {
