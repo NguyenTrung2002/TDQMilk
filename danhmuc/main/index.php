@@ -35,6 +35,8 @@ $total_pages = ceil($total_products / $products_per_page);
         // Hiển thị nút 'Trang trước' nếu không phải trang đầu tiên
         if ($current_page > 1) {
             echo "<a href='/TDQMilk/danhmuc/index.php?page=" . ($current_page - 1) . "'>&laquo;</a>";
+        }else{
+            echo "<a href='/TDQMilk/danhmuc/index.php?page=" . ($current_page) . "'>&laquo;</a>";
         }
 
         // Hiển thị các liên kết trang
@@ -52,6 +54,8 @@ $total_pages = ceil($total_products / $products_per_page);
         // Hiển thị nút 'Trang tiếp theo' nếu không phải trang cuối cùng
         if ($current_page < $total_pages) {
             echo "<a href='/TDQMilk/danhmuc/index.php?page=" . ($current_page + 1) . "'>&raquo;</a>";
+        }else{
+            echo "<a href='/TDQMilk/danhmuc/index.php?page=" . ($current_page) . "'>&raquo;</a>";
         }
         ?>
     </div>
