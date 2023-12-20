@@ -35,6 +35,8 @@ $row_title = mysqli_fetch_array($query_cate);
             <?php
             if ($current_page > 1) {
                 echo "<a href='/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=$_GET[id]&page=" . ($current_page - 1) . "'>&laquo;</a>";
+            }else{
+                echo "<a href='/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=$_GET[id]&page=" . ($current_page) . "'>&laquo;</a>";
             }
 
             for ($i = 1; $i <= $total_pages; $i++) {
@@ -46,6 +48,8 @@ $row_title = mysqli_fetch_array($query_cate);
             }
             if ($current_page < $total_pages) {
                 echo "<a href='/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=$_GET[id]&page=" . ($current_page + 1) . "'>&raquo;</a>";
+            }else{
+                echo "<a href='/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=$_GET[id]&page=" . ($current_page) . "'>&raquo;</a>";
             }
             ?>
         </div>
