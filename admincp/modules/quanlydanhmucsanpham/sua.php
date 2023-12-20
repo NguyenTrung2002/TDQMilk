@@ -19,7 +19,7 @@
     <tr>
       <td>
       <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name = "tendanhmuc" value = <?php echo $dong['ten_danhmuc']?>>
+        <input type="text" class="form-control" name = "tendanhmuc" value = "<?php echo $dong['ten_danhmuc']?>">
         </div>
       </td>
     </tr>
