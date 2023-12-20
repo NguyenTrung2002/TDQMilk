@@ -9,6 +9,7 @@ $sql_cate = "SELECT * FROM tbl_danhmuc WHERE tbl_danhmuc.id_danhmuc = '$_GET[id]
 $query_cate = mysqli_query($conn, $sql_cate);
 $row_title = mysqli_fetch_array($query_cate);
 ?>
+<div class="container main">
 <div class="headline">
     <h3><?php echo $row_title['ten_danhmuc'] ?></h3>
 </div>
@@ -35,3 +36,4 @@ $row_title = mysqli_fetch_array($query_cate);
                 }
                 ?>
             </ul>
+            </div>
