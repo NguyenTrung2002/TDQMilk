@@ -63,22 +63,22 @@ a {
 
 .menu {
     text-align: center;
-
 }
 
-.pagination a {
+.menusanpham a {
+    display: inline-block;
     font-size: 18px;
     color: rgb(0, 0, 184);
-    float: left;
+    
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
   }
   
-.pagination a:hover {background-color: #ddd;}
+.menusanpham a:hover {background-color: #ddd;}
 .headline {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .headline h3 {

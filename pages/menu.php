@@ -6,7 +6,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
     <div class="headline">
         <h3>Danh mục sản phẩm</h3>
     </div>
-    <div class="pagination">
+    <div class="menusanpham">
         <?php
         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
         ?>
