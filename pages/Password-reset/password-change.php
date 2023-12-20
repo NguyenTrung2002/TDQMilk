@@ -78,7 +78,7 @@ $page_title = "Password Change Update";
                             </div>
                             <div class="form-group mb-3">
                                 <label>Mật khẩu mới</label>
-                                <input type="text" name="new_password" class="form-control" placeholder= "Nhập mật khẩu mới">
+                                <input type="text" name="new_password" class="form-control" placeholder= "Nhập mật khẩu mới" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Mật khẩu phải có ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và phải có ít nhất 6 ký tự" required>
                             </div>
                             <div class="form-group mb-3" id ="confirm">
                                 <label>Xác nhận mật khẩu</label>
