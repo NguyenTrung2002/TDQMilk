@@ -2,13 +2,16 @@
 session_start();
 require("../../../pages/Password-reset/password-reset-code.php");
 include('../../../admincp/config/config.php');
+$city = '';
 $firstname = $_POST['firstname'];
 $email = $_POST['email'];
 $address = $_POST['address'];
-$city = $_POST['city'];
+$thanhpho = $_POST['city'];
+$district = $_POST['district'];
+$ward = $_POST['ward'];
 $phone = $_POST['phone'];
 $idkh = $_SESSION['id'];
-
+$city = $ward . ', ' . $district . ', ' . $thanhpho;
 if (isset($_POST['dathang'])) {
     $sql_them = "INSERT INTO tbl_donhang(ten_kh, email_kh, diachi_kh, thanhpho_kh, sdt_kh, tongtien_sanpham, id) VALUE ('" . $firstname . "','" . $email . "','" . $address . "','" . $city . "','" . $phone . "', '" . $_SESSION['tongtien'] . "','" . $idkh . "')";
     mysqli_query($conn, $sql_them);
