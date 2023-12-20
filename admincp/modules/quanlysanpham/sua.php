@@ -19,7 +19,7 @@
       <th scope="col">Tóm tắt</th>
       <th scope="col">Nội dung</th>
       <th scope="col">Tình trạng</th>
-
+      <th scope="col">Tình trạng</th>
     </tr>
   </thead>
   <tbody>
@@ -62,43 +62,40 @@
             $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
             $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
             while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){
-              if($row_danhmuc['id_danhmuc'] == $row_danhmuc['id_danhmuc']){
           ?>
           <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></option>
 
           <?php
-            }else{
-          ?>
-          <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></option>
-          <?php
-              }
+              
             }
           ?>
         </select>
       </td>
       <td>
-      <td>
         <select name="tinhtrang" id="">
           <?php
-            if($row['tinhtrang_sanpham']==1){
+            if($row['tinhtrang_sanpham']==0){
           ?>
           <option value="0" selected>Thường</option>
           <option value="1">Khuyến mãi</option>
           <option value="2">Nổi bật</option>
        <?php
-            }else{
+            }elseif($row['tinhtrang_sanpham']==1){
        ?>
-          <option value="0" selected>Thường</option>
-          <option value="1">Khuyến mãi</option>
+          <option value="0">Thường</option>
+          <option value="1" selected>Khuyến mãi</option>
           <option value="2">Nổi bật</option>
           <?php
-            }
+            }else
           ?>
+          <option value="0">Thường</option>
+          <option value="1" selected>Khuyến mãi</option>
+          <option value="2">Nổi bật</option>
         </select>
       </td>
     </tr>
     <tr>
-      <td colspan="8">
+      <td colspan="9">
         <div class="col-12">
     <button class="btn btn-primary" type="submit" name = "suasanpham">Submit form</button>
   </div>

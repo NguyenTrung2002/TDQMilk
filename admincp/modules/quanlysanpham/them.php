@@ -71,7 +71,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="8">
+          <td colspan="9">
             <div class="col-12">
               <button class="btn btn-primary" type="submit" name="themsanpham">Submit form</button>
             </div>

@@ -1,24 +1,35 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
 <script>
-        // Get the button:
-        let mybutton = document.getElementById("myBtn");
+    let mybutton = document.getElementById("myBtn");
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {
-            scrollFunction()
-        };
+    window.onscroll = function() {
+        scrollFunction()
+    };
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        // Get current vertical position
+        let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+        // Calculate the scroll amount per frame
+        const scrollStep = 10 ; // Change '500' to adjust speed, lower value = faster
+
+        // Function to perform scrolling
+        const scrollInterval = setInterval(function() {
+            if (document.documentElement.scrollTop !== 0) {
+                // Scroll up by a small step
+                window.scrollBy(0, -scrollStep);
             } else {
-                mybutton.style.display = "none";
+                clearInterval(scrollInterval); // Stop scrolling when at the top
             }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
+        }, 0); // 15ms interval - can be adjusted for smoother animation
+    }
+</script>
