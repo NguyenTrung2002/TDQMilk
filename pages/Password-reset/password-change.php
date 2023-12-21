@@ -46,6 +46,9 @@ $page_title = "Password Change Update";
         position: relative;
         right: 20px;
     }
+    body {
+        background-color: hsl(151, 61%, 21%);
+    }
 </style>
 <body>
 <div class="py-5">

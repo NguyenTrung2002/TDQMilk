@@ -1,5 +1,5 @@
 <?php
-include("../../../admincp/config/config.php");
+include("../../admincp/config/config.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

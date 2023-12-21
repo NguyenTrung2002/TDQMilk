@@ -14,6 +14,7 @@
             if(password_verify($password, $row["password"])){
                 $_SESSION['login'] = $username;
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['email'] = $row['email'];
                 if($row["username"] == 'admin'){
                     echo '<script>
                         window.location.href="../../admincp";

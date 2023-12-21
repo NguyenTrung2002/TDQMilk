@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #e0edff;
+    background-color: hsl(151, 61%, 21%);
 }
 .dropdown:hover .dropdown-menu {display: block;}
 .bar1,
@@ -79,6 +79,7 @@ a {
 .headline {
     text-align: center;
     padding-top: 40px;
+    color:antiquewhite;
 }
 
 .headline h3 {
@@ -119,7 +120,7 @@ ul.products li img {
 }
 
 .product-info a.product-name {
-    color: #334862;
+    color: white;
     padding: 3px 0px;
 }
 
@@ -179,4 +180,8 @@ ul.products li:hover .product-top .product-thump img {
 .chitiet_sanpham p {
     font-size: 18px;
     display: block;
+    color: #ddd;
+}
+.chitiet_sanpham h3 {
+    color: #ddd;
 }

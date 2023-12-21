@@ -38,6 +38,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 ?>
                     <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
                     <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
+                    <li><a href="/TDQMilk/pages/Update-information/userProfile.php"><span class="glyphicon glyphicon-edit"></span> Sửa thông tin </a></li>
                 <?php
                     echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>' . '<span style="color:red; position: relative; top: 14px">' . $_SESSION['login'] . '</span>';
                 } else {

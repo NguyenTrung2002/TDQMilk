@@ -1,5 +1,5 @@
 <?php
-     include("../../admincp/config/config.php");
+     include("../../admincp/config/config.php");    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 15%;
   opacity: 0.9;
 }
 
@@ -126,7 +126,7 @@ hr {
     
 }
 body {
-   background-color: hsl(151, 61%, 21%);
+    background-color: hsl(151, 61%, 21%);
 }
 #birthday{
   position: relative;
@@ -147,49 +147,45 @@ body {
 
 </style>
 <body>
-  <form class="modal-content" action="signup.php" method ="POST">
+<?php
+    if(isset($_GET['error'])){
+        ?>
+        <small class="alert alert-danger">Tên và Email cần phải có</small>
+        <hr>
+        <?php
+    }
+?>
+  <form class="modal-content" action="userProfileUpdateProcess.php" method ="POST">
     <div class="container">
-      <h1>Đăng kí</h1>
-      <p>Hãy điền đủ thông tin để tạo tài khoản.</p>
-      <hr>
-      <label for="username"><b>Tài khoản</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <?php
+        session_start();
+        $currentUser = $_SESSION['login'];
+        $sql = "SELECT * FROM tbl_signup WHERE username ='$currentUser'";
 
-      <form action="/action_page.php">
-        <label for="birthday"><b>Ngày sinh</b></label> <br>
-        <input type="date" id="birthday" name="birthday">
-      </form> <br>
+        $gotResuslts = mysqli_query($conn, $sql);
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-
-      <label for="psw"><b>Mật khẩu</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="myInput" required>
-      <input type="checkbox" onclick="myFunction()" id ="check">Show Password <br>
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myInput");
-          if (x.type === "password") {
-            x.type = "text";
-          } else {
-            x.type = "password";
-          }
-        } 
-      </script>
-
-      <label for="psw-repeat"><b>Nhập lại mật khẩu</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-
-      <p>Bạn đã có tài khoản hãy <a href="../Login/index.php" style="color:dodgerblue">Đăng nhập</a>.</p>
-
-      <div class="clearfix">
-      <a href="/TDQMilk/index.php" style="text-decoration: none; color: #fff"><button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></a>
-        <button type="submit" class="signupbtn" name ="submit">Sign Up</button>
-      </div>
+        if($gotResuslts){
+            if(mysqli_num_rows($gotResuslts) >0 ){
+                while($row = mysqli_fetch_array($gotResuslts)){
+                    ?>
+                        <h1>Thông tin người dùng</h1>    
+                        <hr>                    
+                        <label for="username"><b>Tên tài khoản</b></label>
+                        <input type="text" name="username" value="<?php echo $row['username'] ?>" required>
+                        <form action="/action_page.php">
+                            <label for="birthday"><b>Ngày sinh</b></label> <br>
+                            <input type="date" id="birthday" name="birthday" value="<?php echo $row['birthday'] ?>">
+                        </form> <br>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" value="<?php echo $row['email'] ?>" required>
+                        <div class="form-group">
+                            <button type="submit" name ="update" class="btn btn-info">Cập nhật thông tin</button>
+                        </div>
+                    <?php
+                }
+            }
+        }
+      ?>
     </div>
   </form>
 

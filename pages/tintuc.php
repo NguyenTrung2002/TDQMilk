@@ -10,7 +10,7 @@ $query_tintuc = mysqli_query($conn, $sql_tintuc);
     while ($row = mysqli_fetch_array($query_tintuc)) {
     ?>
         <div class="responsive">
-            <div class="gallery">
+            <div class="gallery" style ="color: white">
                 <a target="_blank" href="<?php echo $row['lienket_tintuc'] ?>">
                     <img src="admincp/modules/quanlytintuc/Upload/<?php echo $row['hinhanh_tintuc'] ?>" alt="">
                 </a>
