@@ -17,7 +17,7 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
         <div class="hinhanh_sanpham">
             <img src="../admincp/modules/quanlysanpham/Upload/<?php echo $row_chitiet['hinhanh_sanpham'] ?>" alt="">
             <form method="POST" action="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?idsanpham=<?php echo $row_chitiet['id_sanpham'] ?>">
-                <div class="chitiet_sanpham" style="position:relative; left: 100px">
+                <div class="chitiet_sanpham" >
                     <h3 style="font-size: 30px; font-weight: 600;">Tên sản phẩm: <?php echo $row_chitiet['ten_sanpham'] ?></h3>
                     <p>Số lượng sản phẩm: <?php echo $row_chitiet['soluong_sanpham'] ?></p>
                     <?php

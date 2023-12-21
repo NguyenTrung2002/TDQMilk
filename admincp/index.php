@@ -24,7 +24,6 @@
             include("modules/menu.php");
             include("modules/main.php");
         ?>
-        <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
         </div>
 </body>
 </html>
