@@ -68,7 +68,7 @@ a {
 .menusanpham a {
     display: inline-block;
     font-size: 18px;
-    color: rgb(0, 0, 184);
+    color: rgb(192, 255, 75);
     
     padding: 8px 16px;
     text-decoration: none;
@@ -79,7 +79,7 @@ a {
 .headline {
     text-align: center;
     padding-top: 30px;
-    color:antiquewhite;
+    color:rgb(255, 176, 139);
 }
 
 .headline h3 {
@@ -125,7 +125,7 @@ ul.products li img {
 }
 
 .product-info .product-price {
-    color: #111;
+    color: #d1f48b;
     padding: 2px 0px;
     font-weight: 600;
 }

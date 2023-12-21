@@ -78,7 +78,7 @@ $total_pages = ceil($total_products / $products_per_page);
                         <?php
                         if($row['tinhtrang_sanpham'] ==1){
                         ?>
-                        <div class="product-price" style="color: red;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
+                        <div class="product-price" style="color: #ff6347;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
                         <?php
                         }else{
                         ?>
@@ -102,7 +102,7 @@ $total_pages = ceil($total_products / $products_per_page);
 
     .pagination a {
         justify-content: center;
-        color: black;
+        color: white;
         padding: 8px 16px;
         text-decoration: none;
         transition: background-color .3s;

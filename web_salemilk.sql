@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2023 at 10:20 AM
+-- Generation Time: Dec 21, 2023 at 07:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -65,7 +65,8 @@ CREATE TABLE `tbl_donhang` (
 
 INSERT INTO `tbl_donhang` (`id_donhang`, `ten_kh`, `email_kh`, `diachi_kh`, `thanhpho_kh`, `sdt_kh`, `tongtien_sanpham`, `id`) VALUES
 (106, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '100800', 13),
-(107, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '261200', 13);
+(107, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '261200', 13),
+(108, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '318500', 13);
 
 -- --------------------------------------------------------
 
@@ -83,6 +84,13 @@ CREATE TABLE `tbl_giohang` (
   `hinhanh_sanpham` text NOT NULL,
   `id_giohang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_giohang`
+--
+
+INSERT INTO `tbl_giohang` (`id`, `id_sanpham`, `ten_sanpham`, `soluong_dat`, `ma_sanpham`, `gia_sanpham`, `hinhanh_sanpham`, `id_giohang`) VALUES
+(16, 44, 'Sữa chua lên men', 1, '24', '16800', 'SCU-Len-men-CD-457x396.png', 256);
 
 -- --------------------------------------------------------
 
@@ -109,7 +117,35 @@ CREATE TABLE `tbl_giohang_dathanhtoan` (
 INSERT INTO `tbl_giohang_dathanhtoan` (`id`, `id_sanpham`, `ten_sanpham`, `soluong_dat`, `ma_sanpham`, `gia_sanpham`, `hinhanh_sanpham`, `id_donhang`, `id_dathang`) VALUES
 (13, 46, 'Sữa hạt vị cam', 4, '26', '25200', 'SCUTT-TOPKID-Cam-180-457x396.png', 106, 125),
 (13, 52, 'Sữa trái cây', 10, '32', '11000', 'suatraicaysieuqua-product-img-61.png', 107, 126),
-(13, 46, 'Sữa hạt vị cam', 6, '26', '25200', 'SCUTT-TOPKID-Cam-180-457x396.png', 107, 127);
+(13, 46, 'Sữa hạt vị cam', 6, '26', '25200', 'SCUTT-TOPKID-Cam-180-457x396.png', 107, 127),
+(13, 31, 'Grow Plus Red', 1, '11', '300000', 'growplusdo-900g.png', 108, 128),
+(13, 36, 'Milo nhí', 1, '16', '8000', 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 108, 129),
+(13, 38, 'Milo lon', 1, '18', '10500', 'milolon-hinhsanpham.png', 108, 130);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_review`
+--
+
+CREATE TABLE `tbl_review` (
+  `review_id` int(10) NOT NULL,
+  `user_review` varchar(250) NOT NULL,
+  `username_id` int(255) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `datetime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_review`
+--
+
+INSERT INTO `tbl_review` (`review_id`, `user_review`, `username_id`, `product_id`, `datetime`) VALUES
+(54, 'ngon', 14, 47, '2023-12-22 01:21:29'),
+(55, 'không ngon cho lắm', 13, 47, '2023-12-22 01:21:52'),
+(56, 'uống lại thấy không ngon thật', 14, 47, '2023-12-22 01:22:30'),
+(57, 'uống được phết', 14, 43, '2023-12-22 01:23:19'),
+(58, 'ừ', 13, 43, '2023-12-22 01:23:38');
 
 -- --------------------------------------------------------
 
@@ -146,14 +182,14 @@ INSERT INTO `tbl_sanpham` (`id_sanpham`, `ten_sanpham`, `ma_sanpham`, `gia_sanph
 (28, 'Sữa tiệt trùng không đường Vinamilk', '8', '30000', 10, 'fm100_khong_duong_1l_1__1__ea466.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 11),
 (29, 'Sữa milo ít đường', '9', '30000', 10, 'front-5.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
 (30, 'Sữa ít đường Vinamilk', '10', '30000', 10, 'gf110-rid-leaf-chinhdien_8d59e1d.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 11),
-(31, 'Grow Plus Red', '11', '300000', 10, 'growplusdo-900g.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 10),
+(31, 'Grow Plus Red', '11', '300000', 9, 'growplusdo-900g.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 10),
 (32, 'Sữa cam THTruemilk', '12', '12000', 10, 'JUICE-milk-Cam-457x396-1.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (33, 'Sữa dâu THTruemilk', '13', '12000', 10, 'JUICE-milk-dau-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (34, 'Sữa chuối THTruemilk', '14', '12000', 10, 'JUICEmilkT7-2022-457x396-chuoi.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (35, 'Sữa việt quất THTruemilk', '15', '12000', 10, 'JUICEmilkT7-2022-457x396-vietquat.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
-(36, 'Milo nhí', '16', '8000', 10, 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
+(36, 'Milo nhí', '16', '8000', 9, 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
 (37, 'Milo gói', '17', '5000', 10, 'MILO_ProductResize_230522_Sachet.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 15),
-(38, 'Milo lon', '18', '15000', 10, 'milolon-hinhsanpham.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
+(38, 'Milo lon', '18', '15000', 9, 'milolon-hinhsanpham.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (39, 'Milo hộp to', '19', '40000', 10, 'milo-powder-400g.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (40, 'Milo hộp nắp', '20', '15000', 10, 'milo-teen.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (41, 'Sữa lúa mạch THTruemilk', '21', '25000', 10, 'MISTORI-110-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
@@ -189,7 +225,8 @@ CREATE TABLE `tbl_signup` (
 
 INSERT INTO `tbl_signup` (`id`, `username`, `birthday`, `email`, `password`) VALUES
 (13, 'admin', '2002-09-05', 'nguyenmanhtrung_t65@hus.edu.vn', '$2y$10$RyEkrJcIllPuzBsfktTs5u8ydx//nxGDyb4tblJWVcXNId55tALTm'),
-(14, 'NguyenTrung', '2002-09-05', 'trunggokuty123@gmail.com', '$2y$10$kcs2TYecbDMwZezOpsFJC.K5L0YLLcuHE5e0Yca6Kv0Oc9qybYwZ2');
+(14, 'NguyenTrung', '2002-09-05', 'trunggokuty123@gmail.com', '$2y$10$kcs2TYecbDMwZezOpsFJC.K5L0YLLcuHE5e0Yca6Kv0Oc9qybYwZ2'),
+(16, 'DuongDA', '2002-02-18', 'anhduong180202@gmail.com', '$2y$10$EH1K7hWp1v9KRER.dm78ReXo9afYCeE79D6w/h6eEocy3qove3BnS');
 
 -- --------------------------------------------------------
 
@@ -243,6 +280,12 @@ ALTER TABLE `tbl_giohang_dathanhtoan`
   ADD PRIMARY KEY (`id_dathang`);
 
 --
+-- Indexes for table `tbl_review`
+--
+ALTER TABLE `tbl_review`
+  ADD PRIMARY KEY (`review_id`);
+
+--
 -- Indexes for table `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
@@ -274,19 +317,25 @@ ALTER TABLE `tbl_danhmuc`
 -- AUTO_INCREMENT for table `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  MODIFY `id_donhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id_donhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256;
+  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- AUTO_INCREMENT for table `tbl_giohang_dathanhtoan`
 --
 ALTER TABLE `tbl_giohang_dathanhtoan`
-  MODIFY `id_dathang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id_dathang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+
+--
+-- AUTO_INCREMENT for table `tbl_review`
+--
+ALTER TABLE `tbl_review`
+  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `tbl_sanpham`
@@ -298,7 +347,7 @@ ALTER TABLE `tbl_sanpham`
 -- AUTO_INCREMENT for table `tbl_signup`
 --
 ALTER TABLE `tbl_signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_tintuc`

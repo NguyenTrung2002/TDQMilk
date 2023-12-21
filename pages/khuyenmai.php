@@ -26,7 +26,7 @@ $query_pro = mysqli_query($conn, $sql_pro);
                         <?php
                         if($row['tinhtrang_sanpham'] ==1){
                         ?>
-                        <div class="product-price" style="color: red;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
+                        <div class="product-price" style="color: #ff6347;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
                         <?php
                         }else{
                         ?>
