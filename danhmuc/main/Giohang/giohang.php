@@ -63,7 +63,18 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
           <?php echo $row['soluong_dat'] ?>
           <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?cong=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-plus"></i></a>
         </td>
-        <td><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        if ($row_sanpham['tinhtrang_sanpham'] == 1) {
+        ?>
+          <td style="color: red;"><del><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></del><br><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        } else {
+        ?>
+          <td><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        }
+        ?>
+
         <td><?php echo number_format($thanhtien) . 'VNĐ' ?></td>
         <td><a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?xoa=<?php echo $row['id_sanpham'] ?>">Xóa</a></td>
       </tr>

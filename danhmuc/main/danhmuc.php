@@ -69,7 +69,17 @@ $row_title = mysqli_fetch_array($query_cate);
                     <div class="product-info">
                         <a href="/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row['id_danhmuc'] ?>" class="product-cat"><?php echo $row_title['ten_danhmuc'] ?></a>
                         <a href="/TDQMilk/danhmuc/index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="product-name"><?php echo $row['ten_sanpham'] ?></a>
+                        <?php
+                        if($row['tinhtrang_sanpham'] ==1){
+                        ?>
+                        <div class="product-price" style="color: red;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
+                        <?php
+                        }else{
+                        ?>
                         <div class="product-price"><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </li>
