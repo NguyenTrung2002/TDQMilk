@@ -127,7 +127,7 @@ span.psw {
   }
 }
 body {
-    background-image: url("Sua_signup.jpg");
+  background-color: hsl(151, 61%, 21%);
 }
 .notice{
     text-align: center;

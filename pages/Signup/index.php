@@ -126,7 +126,7 @@ hr {
     
 }
 body {
-    background-image: url("Sua_signup.jpg");
+   background-color: hsl(151, 61%, 21%);
 }
 #birthday{
   position: relative;

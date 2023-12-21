@@ -42,6 +42,9 @@ $page_title = "Password Reset Form";
         position: relative;
         left: 20px;
     }
+    body {
+        background-color: hsl(151, 61%, 21%);
+    }
 </style>
 </head>
 <body>
