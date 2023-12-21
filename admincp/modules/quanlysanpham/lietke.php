@@ -17,6 +17,7 @@ $query_lietke_sanpham = mysqli_query($conn, $sql_lietke_sanpham);
           <th scope="col">Mã sản phẩm</th>
           <th scope="col">Tóm tắt</th>
           <th scope="col">Trạng thái</th>
+          <th scope="col">Giảm giá</th>
           <th scope="col">Quản lý</th>
         </tr>
       </thead>
@@ -44,7 +45,7 @@ $query_lietke_sanpham = mysqli_query($conn, $sql_lietke_sanpham);
                 echo 'Nổi bật';
               }
               ?></td>
-
+          <td><?php echo $row['giamgia_sanpham'] ?></td>
           <td><a href="modules/quanlysanpham/xuly.php?id_sanpham=<?php echo $row['id_sanpham'] ?>">Xoá</a>|<a href="?action=quanlysanpham&query=sua&id_sanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a></td>
 
         </tr>

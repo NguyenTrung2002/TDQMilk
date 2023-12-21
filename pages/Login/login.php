@@ -12,20 +12,11 @@
 
         if($row){
             if(password_verify($password, $row["password"])){
-                $_SESSION['login'] = $username;
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['email'] = $row['email'];
-                if($row["username"] == 'admin'){
-                    echo '<script>
-                        window.location.href="../../admincp";
-                    </script>';
-                }else{
-                    $_SESSION['login'] = $username;
+                $_SESSION['login'] = $row['username'];
+                $_SESSION['id'] = $row['id'];          
                 echo '<script>
                     window.location.href="../../index.php";
                 </script>';
-                }
-                
             }else{
                 echo '<script>
                 alert("Mật khẩu không hợp lệ");

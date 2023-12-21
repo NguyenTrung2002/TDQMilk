@@ -143,7 +143,7 @@ body {
 <body>
 
   
-  <form class="modal-content animate" action="login.php" method="POST">
+  <form id="loginForm" class="modal-content animate" action="login.php" method="POST">
 
 
     <div class="container">
@@ -153,7 +153,8 @@ body {
       <label for="psw"><b>Mật khẩu</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit" name ="submit">Login</button>
+      <button type="submit" name="submit" onclick="return validateLoginForm()">Login</button>
+
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -164,6 +165,38 @@ body {
       <span class="psw"><a href="../Password-reset/resetpsw.php">Quên mật khẩu?</a></span>
       <span class="psw-yet">Chưa có tài khoản hãy <a href="../Signup/index.php">đăng kí?</a></span>
     </div>
-</form>
+  </form>
+  <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "";
+  }
+}
+</script>
+<!-- Đặt mã JavaScript trong thẻ <script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function validateLoginForm() {
+    var form = document.getElementById("loginForm");
+    var username = form.elements["username"].value;
+    var password = form.elements["psw"].value;
+
+    // Kiểm tra nếu bất kỳ trường nào bị bỏ trống
+    if (username === "" || password === "") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Vui lòng điền đầy đủ thông tin để đăng nhập!',
+      });
+      return false; // Ngăn form được submit nếu có trường bị bỏ trống
+    }
+    return true; // Cho phép form được submit nếu hợp lệ
+  }
+</script>
+
 </body>
 </html>

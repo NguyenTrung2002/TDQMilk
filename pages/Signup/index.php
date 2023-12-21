@@ -144,16 +144,30 @@ body {
 #myInput{
   margin-bottom: 10px;
 }
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
 
 </style>
 <body>
-  <form class="modal-content" action="signup.php" method ="POST">
+  <form class="modal-content animate" id="signupForm" action="signup.php" method ="POST">
     <div class="container">
       <h1>Đăng kí</h1>
       <p>Hãy điền đủ thông tin để tạo tài khoản.</p>
       <hr>
       <label for="username"><b>Tài khoản</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input type="text" placeholder="Enter Username" name="username" required minlength="5">
 
       <form action="/action_page.php">
         <label for="birthday"><b>Ngày sinh</b></label> <br>
@@ -164,7 +178,7 @@ body {
       <input type="text" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Mật khẩu</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="myInput" required>
+      <input type="password" placeholder="Enter Password" name="psw" id="myInput" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Mật khẩu phải có ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và phải có ít nhất 6 ký tự" required>
       <input type="checkbox" onclick="myFunction()" id ="check">Show Password <br>
       <script>
         function myFunction() {
@@ -188,7 +202,8 @@ body {
 
       <div class="clearfix">
       <a href="/TDQMilk/index.php" style="text-decoration: none; color: #fff"><button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></a>
-        <button type="submit" class="signupbtn" name ="submit">Sign Up</button>
+      <button type="submit" name="submit" class="signupbtn" onclick="return validateSignupForm()">Sign Up</button>
+
       </div>
     </div>
   </form>
@@ -204,6 +219,67 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+</script>
+<!-- Đặt mã JavaScript trong thẻ <script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function validateSignupForm() {
+        var form = document.getElementById("signupForm");
+        var username = form.elements["username"].value;
+        var birthday = form.elements["birthday"].value;
+        var email = form.elements["email"].value;
+        var psw = form.elements["psw"].value;
+        var pswRepeat = form.elements["psw-repeat"].value;
+
+        var errorMessage = "";
+
+        if (username.length < 5) {
+            errorMessage += "Tên tài khoản phải có ít nhất 5 ký tự.\n";
+        }
+
+        if (birthday === "") {
+            errorMessage += "Vui lòng chọn ngày sinh.\n";
+        }
+
+        if (email === "") {
+            errorMessage += "Vui lòng điền địa chỉ email.\n";
+        } else if (!validateEmail(email)) {
+            errorMessage += "Địa chỉ email không hợp lệ.\n";
+        }
+
+        if (psw.length < 6) {
+            errorMessage += "Mật khẩu phải có ít nhất 6 ký tự.\n";
+        } else if (!validatePassword(psw)) {
+            errorMessage += "Mật khẩu phải có ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và không chứa ký tự đặc biệt.\n";
+        }
+
+        if (psw !== pswRepeat) {
+            errorMessage += "Mật khẩu không khớp.\n";
+        }
+
+        if (errorMessage !== "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: errorMessage,
+            });
+            return false;
+        }
+
+        return true;
+    }
+
+    // Hàm kiểm tra định dạng email
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    // Hàm kiểm tra mật khẩu
+    function validatePassword(psw) {
+        var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
+        return re.test(psw);
+    }
 </script>
 
 </body>

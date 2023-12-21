@@ -13,6 +13,7 @@
           <th scope="col">Nội dung</th>
           <th scope="col">Danh mục sản phẩm</th>
           <th scope="col">Tình trạng</th>
+          <th scope="col">Giảm giá</th>
 
         </tr>
       </thead>
@@ -69,9 +70,14 @@
               <option value="2">Nổi bật</option>
             </select>
           </td>
+          <td>
+            <div class="input-group flex-nowrap">
+              <input type="text" class="form-control" placeholder="Giảm giá" aria-label="Giảm giá" name="giamgia" aria-describedby="addon-wrapping">
+            </div>
+          </td>
         </tr>
         <tr>
-          <td colspan="8">
+          <td colspan="9">
             <div class="col-12">
               <button class="btn btn-primary" type="submit" name="themsanpham">Submit form</button>
             </div>

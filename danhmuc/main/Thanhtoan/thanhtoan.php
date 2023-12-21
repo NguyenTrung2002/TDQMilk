@@ -57,20 +57,22 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
                     <div class="row">
                         <div class="col-50">
                             <label for="fname" style="margin-top: 20px;"><i class="fa fa-user"></i> Họ và tên</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Nguyễn Mạnh Trung" style="margin-bottom: 20px;">
+                            <input type="text" id="fname" name="firstname" placeholder="Nguyễn Mạnh Trung" style="margin-bottom: 20px;" required>
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="nguyenmanhtrung_t65@hus.edu.vn" style="margin-bottom: 20px;">
-                            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
-                            <input type="text" id="adr" name="address" placeholder="334 Nguyễn Trãi, Thanh Xuân" style="margin-bottom: 20px;">
-                            <label for="city"><i class="fa fa-institution"></i> Thành phố</label>
-                            <input type="text" id="city" name="city" placeholder="Hà Nội" style="margin-bottom: 20px;">
+                            <input type="text" id="email" name="email" placeholder="nguyenmanhtrung_t65@hus.edu.vn" style="margin-bottom: 20px;" required>
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ cụ thể</label>
+                            <input type="text" id="adr" name="address" placeholder="334 Nguyễn Trãi, Thanh Xuân" style="margin-bottom: 20px;" required>
+                            <?php
+                            include("tinhthanh.php")
+                            ?>
                             <label for="phone"><i class="fa fa-phone"></i> Số điện thoại</label>
-                            <input type="text" id="phone" name="phone" placeholder="0327103128" style="margin-bottom: 20px;">
+                            <input type="text" id="phone" name="phone" placeholder="0327103128" style="margin-bottom: 20px;" required>
                         </div>
                     </div>
-                    <input type="submit" value="Đặt hàng" class="btn1" name="dathang">
+                    <input type="submit" value="Đặt hàng" class="btn1" name="dathang" onclick="return validateForm()">
                 </form>
             </div>
         </div>
 
     </div>
+

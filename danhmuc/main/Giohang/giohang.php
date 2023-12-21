@@ -3,6 +3,7 @@ $idkh = $_SESSION['id'];
 $sql_lietke_giohang = "SELECT * FROM tbl_giohang WHERE tbl_giohang.id = '" . $idkh . "'";
 $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
 ?>
+
 <div class="headline">
   <h3>Giỏ hàng</h3>
 </div>
@@ -28,9 +29,21 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
       <tr>
         <?php
         // Lấy giá sản phẩm và số lượng từ cơ sở dữ liệu
-
+        $sql_sanpham = "SELECT * FROM tbl_sanpham WHERE id_sanpham ='" . $row['id_sanpham'] . "' LIMIT 1";
+        $query_sanpham = mysqli_query($conn, $sql_sanpham);
+        $row_sanpham = mysqli_fetch_array($query_sanpham);
         $gia_sanpham = $row['gia_sanpham'];
-        $soluong_dat = $row['soluong_dat'];
+        if($row['soluong_dat']>=$row_sanpham['soluong_sanpham']){
+          $sql_update = "UPDATE tbl_giohang SET soluong_dat = '" . $row_sanpham['soluong_sanpham'] . "' WHERE id = '" . $idkh . "' AND id_sanpham = '" . $row['id_sanpham'] . "'";
+          mysqli_query($conn, $sql_update);
+          $soluong_dat = $row_sanpham['soluong_sanpham'];
+          if($row_sanpham['soluong_sanpham'] <= 0){
+            $sql_xoa = "DELETE FROM tbl_giohang WHERE tbl_giohang.id ='" . $idkh . "' AND tbl_giohang.id_sanpham = '" . $row['id_sanpham'] . "'";
+            mysqli_query($conn, $sql_xoa);
+          }
+        }else{
+          $soluong_dat = $row['soluong_dat'];
+        }
 
         // Ép kiểu dữ liệu về kiểu số
         $gia_sanpham = floatval(str_replace(',', '', $gia_sanpham)); // Chuyển đổi giá sản phẩm về kiểu số
@@ -46,11 +59,22 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
         <td><?php echo $row['ten_sanpham'] ?></td>
         <td><img src='../admincp/modules/quanlysanpham/Upload/<?php echo $row['hinhanh_sanpham'] ?>' width=130px height=100px></td>
         <td>
-          <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?cong=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-plus"></i></a>
+        <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?tru=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-minus"></i></a>
           <?php echo $row['soluong_dat'] ?>
-          <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?tru=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-minus"></i></a>
+          <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?cong=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-plus"></i></a>
         </td>
-        <td><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        if ($row_sanpham['tinhtrang_sanpham'] == 1) {
+        ?>
+          <td style="color: red;"><del><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></del><br><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        } else {
+        ?>
+          <td><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></td>
+        <?php
+        }
+        ?>
+
         <td><?php echo number_format($thanhtien) . 'VNĐ' ?></td>
         <td><a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?xoa=<?php echo $row['id_sanpham'] ?>">Xóa</a></td>
       </tr>

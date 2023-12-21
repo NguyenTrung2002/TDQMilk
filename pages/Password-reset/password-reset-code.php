@@ -39,6 +39,7 @@ function send_password_reset($get_name, $get_email,$token){
     $mail->send();
 }
 class Mailer{
+    
     function dathangmail($tieude, $noidung, $maildathang){
         $mail = new PHPMailer(true);
         $mail -> CharSet = 'utf8';
@@ -51,7 +52,7 @@ class Mailer{
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('anhduong180202@gmail.com', 'Thông báo đơn hàng');
+        $mail->setFrom('anhduong180202@gmail.com', 'Thông báo đơn hàng tại web suatuoinguyenchat.com');
         $mail->addAddress($maildathang);     //Add a recipient
        
         //Content
