@@ -72,7 +72,7 @@ $row_title = mysqli_fetch_array($query_cate);
                         <?php
                         if($row['tinhtrang_sanpham'] ==1){
                         ?>
-                        <div class="product-price" style="color: red;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
+                        <div class="product-price" style="color: #ff6347;"><del><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row['gia_sanpham']*(100-$row['giamgia_sanpham'])/100) . 'VNĐ' ?></div>
                         <?php
                         }else{
                         ?>
@@ -96,7 +96,7 @@ $row_title = mysqli_fetch_array($query_cate);
 
     .pagination a {
         justify-content: center;
-        color: black;
+        color: #fff;
         padding: 8px 16px;
         text-decoration: none;
         transition: background-color .3s;

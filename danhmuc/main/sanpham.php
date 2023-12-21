@@ -23,7 +23,7 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
                     <?php
                         if($row_chitiet['tinhtrang_sanpham'] ==1){
                         ?>
-                        <p style="color: red;">Giá sản phẩm: <del><?php echo number_format($row_chitiet['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row_chitiet['gia_sanpham']*(100-$row_chitiet['giamgia_sanpham'])/100) . 'VNĐ' ?></p>
+                        <p style="color: #ff6347;">Giá sản phẩm: <del><?php echo number_format($row_chitiet['gia_sanpham']) . 'VNĐ' ?></del> <?php echo number_format($row_chitiet['gia_sanpham']*(100-$row_chitiet['giamgia_sanpham'])/100) . 'VNĐ' ?></p>
                         <?php
                         }else{
                         ?>

@@ -7,9 +7,9 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
 <div class="headline">
   <h3>Giỏ hàng</h3>
 </div>
-<div class="container" style="overflow-x:auto;">
+<div class="container" style="overflow-x:auto; color: #fff">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <table style="width: 100%;text-align:center" border="2">
+  <table style="width: 100%;text-align:center" border="5px solid white;">
     <tr>
       <th>ID</th>
       <th>Mã sản phẩm</th>
@@ -59,14 +59,15 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
         <td><?php echo $row['ten_sanpham'] ?></td>
         <td><img src='../admincp/modules/quanlysanpham/Upload/<?php echo $row['hinhanh_sanpham'] ?>' width=130px height=100px></td>
         <td>
-        <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?tru=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-minus"></i></a>
+        <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?tru=<?php echo $row['id_sanpham'] ?>" style="color: #007bff;"><i class="fa-solid fa-minus"></i></a>
+
           <?php echo $row['soluong_dat'] ?>
-          <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?cong=<?php echo $row['id_sanpham'] ?>"><i class="fa-solid fa-plus"></i></a>
+          <a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?cong=<?php echo $row['id_sanpham'] ?>" style="color: #007bff;"><i class="fa-solid fa-plus"></i></a>
         </td>
         <?php
         if ($row_sanpham['tinhtrang_sanpham'] == 1) {
         ?>
-          <td style="color: red;"><del><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></del><br><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
+          <td style="color: #ff6347;"><del><?php echo number_format($row_sanpham['gia_sanpham']) . 'VNĐ' ?></del><br><?php echo number_format($row['gia_sanpham']) . 'VNĐ' ?></td>
         <?php
         } else {
         ?>
@@ -76,7 +77,7 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
         ?>
 
         <td><?php echo number_format($thanhtien) . 'VNĐ' ?></td>
-        <td><a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?xoa=<?php echo $row['id_sanpham'] ?>">Xóa</a></td>
+        <td><a href="/TDQMilk/danhmuc/main/Giohang/themgiohang.php?xoa=<?php echo $row['id_sanpham'] ?>" style="color: #007bff;">Xóa</a></td>
       </tr>
     <?php
     }
@@ -98,7 +99,7 @@ $query_lietke_giohang = mysqli_query($conn, $sql_lietke_giohang);
     if ($i != 0) {
     ?>
 <div class="container" style="text-align: right;">
-  <p style="padding-top:10px;font-size: 15px; font-weight:600">Tổng tiền: <?php echo number_format($tongtien) . 'VNĐ' ?></p>
+  <p style="padding-top:10px;font-size: 15px; font-weight:600;color: #ff6347">Tổng tiền: <?php echo number_format($tongtien) . 'VNĐ' ?></p>
   <a href="/TDQMilk/danhmuc/index.php?quanly=thanhtoan"><button class="btnlogin" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đến trang thanh toán</button></a>
 </div>
 <?php
