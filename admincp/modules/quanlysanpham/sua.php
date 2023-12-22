@@ -62,15 +62,16 @@ $query_sua_sp = mysqli_query($conn, $sql_sua_sp);
                 <?php
                 $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
                 $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
+                $selected_id_danhmuc = $row['id_danhmuc']; // Giả sử $row_sanpham chứa thông tin của sản phẩm cần sửa
                 while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                  $selected = ($row_danhmuc['id_danhmuc'] == $selected_id_danhmuc) ? "selected" : "";
                 ?>
-                  <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></option>
-
+                  <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>" <?php echo $selected ?>><?php echo $row_danhmuc['ten_danhmuc'] ?></option>
                 <?php
-
                 }
                 ?>
               </select>
+
             </td>
             <td>
               <select name="tinhtrang" id="">
@@ -87,11 +88,11 @@ $query_sua_sp = mysqli_query($conn, $sql_sua_sp);
                   <option value="1" selected>Khuyến mãi</option>
                   <option value="2">Nổi bật</option>
                 <?php
-                }else{
+                } else {
                 ?>
-                <option value="0">Thường</option>
-                <option value="1">Khuyến mãi</option>
-                <option value="2" selected>Nổi bật</option>
+                  <option value="0">Thường</option>
+                  <option value="1">Khuyến mãi</option>
+                  <option value="2" selected>Nổi bật</option>
                 <?php
                 }
                 ?>

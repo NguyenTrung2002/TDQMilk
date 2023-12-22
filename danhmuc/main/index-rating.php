@@ -9,7 +9,7 @@
             <input type="submit" class="btn btn-primary" value="Gửi đánh giá" name="feedback_submit">
         </form>
     <?php else : ?>
-        <div class="text-center">
+        <div class="text-center" style="padding-bottom: 30px;">
             <small class="alert alert-danger" style="position:relative; top:15px">Vui lòng<a href="../pages/Login/index.php" style="color:dodgerblue"> đăng nhập </a>hoặc<a href="../pages/Signup/index.php"> đăng ký </a>thành viên để bình luận và đánh giá sản phẩm</small>
         </div>
     <?php endif; ?>
