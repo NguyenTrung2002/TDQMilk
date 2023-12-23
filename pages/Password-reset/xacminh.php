@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$page_title = "Password Change Update";
+$page_title = "Password Reset Form";
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,20 +42,16 @@ $page_title = "Password Change Update";
         position: relative;
         left: 20px;
     }
-    #confirm{
-        position: relative;
-        right: 20px;
-    }
     body {
         background-color: hsl(151, 61%, 21%);
     }
 </style>
+</head>
 <body>
 <div class="py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-
                 <?php
                     if(isset($_SESSION['status'])){
                         ?>
@@ -69,25 +65,19 @@ $page_title = "Password Change Update";
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Thay đổi mật khẩu</h5>
+                        <h5>Nhập mã xác minh</h5>
                     </div>
-                    <div class="card-body p4">
+                    <div class="card-body p-4">
                         <form action="password-reset-code.php" method="POST">
+
                             <div class="form-group mb-3">
-                                <label>Email Address</label>
-                                <input type="text" name="email" value="<?php echo $_SESSION['email']?>" class="form-control" placeholder = "Nhập địa chỉ Email" readonly>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Mật khẩu mới</label>
-                                <input type="text" name="new_password" class="form-control" placeholder= "Nhập mật khẩu mới" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Mật khẩu phải có ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và phải có ít nhất 6 ký tự" required>
-                            </div>
-                            <div class="form-group mb-3" id ="confirm">
-                                <label>Xác nhận mật khẩu</label>
-                                <input type="text" name="confirm_password" class="form-control" placeholder= "Nhập lại mật khẩu">
+                                <label>Mã xác minh</label>
+                                <input type="text" name="verification_code" class="form-control" placeholder="Nhập mã xác minh">
                             </div>
                             <div class="form-group mb-3">
-                                <button type="submit" name ="password_update" class="btn btn-success w-100">Thay đổi mật khẩu</button>
+                                <button type="submit" name="verify_code" class="btn btn-primary">Nhập mã xác minh</button>
                             </div>
+
                         </form>
                     </div>
                 </div>

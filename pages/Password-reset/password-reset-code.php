@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../../admincp/config/config.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -10,32 +11,21 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 require 'vendor/autoload.php';
-function send_password_reset($get_name, $get_email,$token){
+function send_verification_code($email, $verification_code) {
     $mail = new PHPMailer(true);
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'anhduong180202@gmail.com';                     //SMTP username
-    $mail->Password   = 'hnbvyepqqlkdfqox';                               //SMTP password
-    $mail->SMTPSecure = 'tls';             //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom('anhduong180202@gmail.com', $get_name);
-    $mail->addAddress($get_email);     //Add a recipient
-   
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Reset Password Notification';
-
-    $email_template = "
-        <h2>Xin chào<h2>
-        <h3>Bạn đang nhận được email bởi vì chúng tôi vừa gửi password reset yêu cầu đến tài khoản của bạn.</h3>
-        <br/><br/>
-        <a href ='http://localhost:8080/TDQMilk/pages/Password-reset/password-change.php?token=$token&email=$get_email'> Click me </a>
-    ";
-
-    $mail->Body = $email_template;
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'trunggokuty123@gmail.com';
+    $mail->Password = 'bktlultopukfupiy';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+    $mail->setFrom('trunggokuty123@gmail.com', 'Your Name');
+    $mail->addAddress($email);
+    $mail->isHTML(true);
+    $mail->Subject = 'Verification Code for Password Reset';
+    $mail->Body = "<h3>Your verification code is: $verification_code</h3>";
     $mail->send();
 }
 class Mailer{
@@ -46,13 +36,13 @@ class Mailer{
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'anhduong180202@gmail.com';                     //SMTP username
-        $mail->Password   = 'hnbvyepqqlkdfqox';                               //SMTP password
+        $mail->Username   = 'trunggokuty123@gmail.com';                     //SMTP username
+        $mail->Password   = 'bktlultopukfupiy';                                   //SMTP password
         $mail->SMTPSecure = 'tls';             //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('anhduong180202@gmail.com', 'Thông báo đơn hàng tại web suatuoinguyenchat.com');
+        $mail->setFrom('trunggokuty123@gmail.com', 'Thông báo đơn hàng tại web suatuoinguyenchat.com');
         $mail->addAddress($maildathang);     //Add a recipient
        
         //Content
@@ -63,84 +53,68 @@ class Mailer{
         $mail->send();
     }
 }
-if(isset($_POST['password_reset_link'])){
+if (isset($_POST['password_reset_link'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $token = md5(rand());
-
+    $_SESSION['email'] = $email;
     $check_email = "SELECT email, username FROM tbl_signup WHERE email='$email' LIMIT 1";
     $check_email_run = mysqli_query($conn, $check_email);
 
-    if(mysqli_num_rows($check_email_run) > 0){
-        $row = mysqli_fetch_array($check_email_run);
-        $get_name = $row['username'];
-        $get_email = $row['email'];
+    if (mysqli_num_rows($check_email_run) > 0) {
+        $verification_code = mt_rand(100000, 999999);
 
-        $update_password = "UPDATE tbl_signup SET password='$token' WHERE email='$get_email' LIMIT 1";
-        $update_password_run = mysqli_query($conn, $update_password);
-         if($update_password_run){
-            send_password_reset($get_name, $get_email,$token);
-            $_SESSION['status'] = "Chúng tôi đã gửi emai cho bạn để cài đặt lại mật khẩu";
-            header("Location: resetpsw.php");
-            exit(0);
-         }else{
-            $_SESSION['status'] = "Đã xảy ra lỗi!!!";
-            header("Location: resetpsw.php");
-            exit(0);
-         }
+        // Gửi mã xác minh qua email
+        send_verification_code($email, $verification_code);
 
-    }else{
-        $_SESSION['status'] = "Không tìm thấy Email";
+        // Lưu mã xác minh vào session để kiểm tra sau
+        $_SESSION['verification_code'] = $verification_code;
+
+        $_SESSION['status'] = "Chúng tôi đã gửi mã xác minh qua email để đặt lại mật khẩu.";
+        header("Location: xacminh.php");
+        exit(0);
+    } else {
+        $_SESSION['status'] = "Không tìm thấy email trong hệ thống.";
         header("Location: resetpsw.php");
         exit(0);
     }
 }
-
-if(isset($_POST['password_update'])){
+if (isset($_POST['verify_code'])) {
+    $user_input_code = intval($_POST['verification_code']);
+    // Kiểm tra xem mã người dùng nhập vào có khớp với mã đã gửi đi hay không
+    if ($_SESSION['verification_code'] === $user_input_code) {
+        // Mã xác minh đúng, chuyển hướng đến trang đổi mật khẩu
+        header("Location: password-change.php");
+        exit(0);
+    } else {
+        // Mã xác minh không khớp, hiển thị thông báo lỗi
+        $_SESSION['status'] = "Mã xác minh không chính xác.";
+        header("Location: xacminh.php");
+        exit(0);
+    }
+}
+if (isset($_POST['password_update'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $new_password = mysqli_real_escape_string($conn, $_POST['new_password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
-    $token = mysqli_real_escape_string($conn, $_POST['password_token']);
+    
+    if ($new_password === $confirm_password) {
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+        
+        $update_password_query = "UPDATE tbl_signup SET password='$hashed_password' WHERE email='$email'";
+        $update_password_result = mysqli_query($conn, $update_password_query);
 
-    if(!empty($token)){
-        if(!empty($email) && !empty($new_password) && !empty($confirm_password)){
-            //Checking token is Valid or not
-            $check_token = "SELECT password FROM tbl_signup WHERE password='$token' LIMIT 1";
-            $check_token_run = mysqli_query($conn, $check_token);
-
-            if(mysqli_num_rows($check_token_run) > 0){
-                if($new_password == $confirm_password){
-                    $hash_password = password_hash($new_password, PASSWORD_DEFAULT);
-                    $update_password = "UPDATE tbl_signup SET password='$hash_password' WHERE password='$token' LIMIT 1";
-                    $update_password_run = mysqli_query($conn, $update_password);
-
-                    if($update_password_run){
-                        $_SESSION['status'] = "Mật khẩu mới đã được cập nhật thành công";
-                        header("Location: ../Login/index.php");
-                        exit(0);
-                    }else{
-                        $_SESSION['status'] = "Không thể cập nhật mật khẩu. Có lỗi xảy ra";
-                        header("Location: password-change.php?token=$token&email=$email");
-                        exit(0);
-                    }
-                }else{
-                    $_SESSION['status'] = "Mật khẩu và Xác nhận lại mật khẩu không khớp";
-                    header("Location: password-change.php?token=$token&email=$email");
-                    exit(0);
-                }
-            }else{
-                $_SESSION['status'] = "Mã thông báo không hợp lệ";
-                header("Location: password-change.php?token=$token&email=$email");
-                exit(0);
-            }
-        }else{
-            $_SESSION['status'] = "Hãy điền đủ thông tin";
-            header("Location: password-change.php?token=$token&email=$email");
-            exit(0);
+        if ($update_password_result) {
+            $_SESSION['status'] = "Mật khẩu đã được cập nhật thành công";
+            header("Location: ../Login/index.php"); // Chuyển hướng đến trang profile hoặc trang khác sau khi cập nhật mật khẩu
+            exit();
+        } else {
+            $_SESSION['status'] = "Đã xảy ra lỗi khi cập nhật mật khẩu";
+            header("Location: password-change.php"); // Chuyển hướng người dùng về trang thay đổi mật khẩu với thông báo lỗi
+            exit();
         }
-    }else{
-        $_SESSION['status'] = "Không có mã thông báo";
-        header("Location: password-change.php");
-        exit(0);
+    } else {
+        $_SESSION['status'] = "Mật khẩu mới và xác nhận mật khẩu không khớp";
+        header("Location: password-change.php"); // Chuyển hướng người dùng về trang thay đổi mật khẩu với thông báo lỗi
+        exit();
     }
 }
 ?>

@@ -85,8 +85,8 @@ if (isset($_POST['dathang'])) {
     $mail = new Mailer;
     $mail -> dathangmail($tieude, $noidung, $maildathang);
     echo '<script>
-    alert("Bạn đã đặt hàng thành công, vui lòng quay về trang chủ");
-    window.location.href="/TDQMilk/index.php";
+    alert("Bạn đã đặt hàng thành công, vui lòng quay về trang để tiếp tục mua sắm");
+    window.location.href="/TDQMilk/danhmuc/index.php";
 </script>';
 }
 ?>
