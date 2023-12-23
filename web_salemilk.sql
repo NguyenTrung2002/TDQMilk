@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2023 at 07:24 PM
+-- Generation Time: Dec 23, 2023 at 09:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -59,15 +59,6 @@ CREATE TABLE `tbl_donhang` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbl_donhang`
---
-
-INSERT INTO `tbl_donhang` (`id_donhang`, `ten_kh`, `email_kh`, `diachi_kh`, `thanhpho_kh`, `sdt_kh`, `tongtien_sanpham`, `id`) VALUES
-(106, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '100800', 13),
-(107, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '261200', 13),
-(108, 'Nguyễn Mạnh Trung', 'nguyenmanhtrung_t65@hus.edu.vn', '10 ngách 29/42 Khương Hạ', 'Phường Khương Đình, Quận Thanh Xuân, Thành phố Hà Nội', '0327103128', '318500', 13);
-
 -- --------------------------------------------------------
 
 --
@@ -110,18 +101,6 @@ CREATE TABLE `tbl_giohang_dathanhtoan` (
   `id_dathang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbl_giohang_dathanhtoan`
---
-
-INSERT INTO `tbl_giohang_dathanhtoan` (`id`, `id_sanpham`, `ten_sanpham`, `soluong_dat`, `ma_sanpham`, `gia_sanpham`, `hinhanh_sanpham`, `id_donhang`, `id_dathang`) VALUES
-(13, 46, 'Sữa hạt vị cam', 4, '26', '25200', 'SCUTT-TOPKID-Cam-180-457x396.png', 106, 125),
-(13, 52, 'Sữa trái cây', 10, '32', '11000', 'suatraicaysieuqua-product-img-61.png', 107, 126),
-(13, 46, 'Sữa hạt vị cam', 6, '26', '25200', 'SCUTT-TOPKID-Cam-180-457x396.png', 107, 127),
-(13, 31, 'Grow Plus Red', 1, '11', '300000', 'growplusdo-900g.png', 108, 128),
-(13, 36, 'Milo nhí', 1, '16', '8000', 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 108, 129),
-(13, 38, 'Milo lon', 1, '18', '10500', 'milolon-hinhsanpham.png', 108, 130);
-
 -- --------------------------------------------------------
 
 --
@@ -135,17 +114,6 @@ CREATE TABLE `tbl_review` (
   `product_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_review`
---
-
-INSERT INTO `tbl_review` (`review_id`, `user_review`, `username_id`, `product_id`, `datetime`) VALUES
-(54, 'ngon', 14, 47, '2023-12-22 01:21:29'),
-(55, 'không ngon cho lắm', 13, 47, '2023-12-22 01:21:52'),
-(56, 'uống lại thấy không ngon thật', 14, 47, '2023-12-22 01:22:30'),
-(57, 'uống được phết', 14, 43, '2023-12-22 01:23:19'),
-(58, 'ừ', 13, 43, '2023-12-22 01:23:38');
 
 -- --------------------------------------------------------
 
@@ -178,8 +146,8 @@ INSERT INTO `tbl_sanpham` (`id_sanpham`, `ten_sanpham`, `ma_sanpham`, `gia_sanph
 (24, 'Gói sữa tiệt trùng có đường Vinamilk', '4', '5000', 10, 'bich_fino_sua_tuoi_-_co_duong__1.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 11),
 (25, 'Sữa dâu tiệt trùng Vinamilk', '5', '35000', 10, 'block_dau_110ml_c3030a3762834f17.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 11),
 (26, 'Sữa socola tiệt trùng Vinamilk', '6', '35000', 10, 'block_scl_110ml_960743ef7e94423d.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 11),
-(27, 'Sữa tiệt trùng ít đường Vinamilk', '7', '30000', 10, 'fm100_it_duong_1l_1_a13adfd202a9.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 11),
-(28, 'Sữa tiệt trùng không đường Vinamilk', '8', '30000', 10, 'fm100_khong_duong_1l_1__1__ea466.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 11),
+(27, 'Sữa tiệt trùng ít đường Vinamilk', '7', '30000', 9, 'fm100_it_duong_1l_1_a13adfd202a9.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 11),
+(28, 'Sữa tiệt trùng không đường Vinamilk', '8', '30000', 9, 'fm100_khong_duong_1l_1__1__ea466.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 11),
 (29, 'Sữa milo ít đường', '9', '30000', 10, 'front-5.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
 (30, 'Sữa ít đường Vinamilk', '10', '30000', 10, 'gf110-rid-leaf-chinhdien_8d59e1d.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 11),
 (31, 'Grow Plus Red', '11', '300000', 9, 'growplusdo-900g.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 10),
@@ -187,22 +155,22 @@ INSERT INTO `tbl_sanpham` (`id_sanpham`, `ten_sanpham`, `ma_sanpham`, `gia_sanph
 (33, 'Sữa dâu THTruemilk', '13', '12000', 10, 'JUICE-milk-dau-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (34, 'Sữa chuối THTruemilk', '14', '12000', 10, 'JUICEmilkT7-2022-457x396-chuoi.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (35, 'Sữa việt quất THTruemilk', '15', '12000', 10, 'JUICEmilkT7-2022-457x396-vietquat.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
-(36, 'Milo nhí', '16', '8000', 9, 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
+(36, 'Milo nhí', '16', '8000', 8, 'MILO HỘP NHÍ UỐNG LIỀN_De.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 15),
 (37, 'Milo gói', '17', '5000', 10, 'MILO_ProductResize_230522_Sachet.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 15),
-(38, 'Milo lon', '18', '15000', 9, 'milolon-hinhsanpham.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
+(38, 'Milo lon', '18', '15000', 8, 'milolon-hinhsanpham.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (39, 'Milo hộp to', '19', '40000', 10, 'milo-powder-400g.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (40, 'Milo hộp nắp', '20', '15000', 10, 'milo-teen.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 15),
 (41, 'Sữa lúa mạch THTruemilk', '21', '25000', 10, 'MISTORI-110-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (42, 'Milo ngũ cốc', '22', '50000', 10, 'Ngũ cốc Milo 700g 1-600x315.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 15),
-(43, 'Sữa hạt', '23', '36000', 10, 'OAT-457x396-180.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 9),
-(44, 'Sữa chua lên men', '24', '24000', 10, 'SCU-Len-men-CD-457x396.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 9),
+(43, 'Sữa hạt', '23', '36000', 9, 'OAT-457x396-180.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 9),
+(44, 'Sữa chua lên men', '24', '24000', 9, 'SCU-Len-men-CD-457x396.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 9),
 (45, 'Sữa chua lên men vị dâu', '25', '24000', 10, 'SCU-Len-men-dau-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
 (46, 'Sữa hạt vị cam', '26', '36000', 0, 'SCUTT-TOPKID-Cam-180-457x396.png', ' Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 1, 30, 9),
 (47, 'Sữa tươi nguyên chất', '27', '50000', 10, 'STTT-nguyen-chat-950ml.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 2, NULL, 9),
 (48, 'Sữa hạt vị dâu', '28', '36000', 10, 'SCUTT-TOPKID-Dau-180-457x396.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
-(49, 'Sữa hạt vị chuối ', '29', '36000', 10, 'SCUTT-TOPKIDT8-2022-457x396-chuoi.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
-(50, 'Sữa milo có đường', '30', '30000', 10, 'hop-giay-uong-lien_Details_Thumb.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 15),
-(51, 'Tuýp sữa ông thọ', '31', '21000', 10, 'tuyp__1__383cc9dc4df9400ebb6d54d.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 11),
+(49, 'Sữa hạt vị chuối ', '29', '36000', 9, 'SCUTT-TOPKIDT8-2022-457x396-chuoi.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 9),
+(50, 'Sữa milo có đường', '30', '30000', 9, 'hop-giay-uong-lien_Details_Thumb.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 15),
+(51, 'Tuýp sữa ông thọ', '31', '21000', 3, 'tuyp__1__383cc9dc4df9400ebb6d54d.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 11),
 (52, 'Sữa trái cây', '32', '11000', 0, 'suatraicaysieuqua-product-img-61.png', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 'Sữa giúp tăng chiều cao, có nhiều chất dinh dưỡng cần thiết cho trẻ nhỏ', 0, NULL, 10);
 
 -- --------------------------------------------------------
@@ -224,9 +192,10 @@ CREATE TABLE `tbl_signup` (
 --
 
 INSERT INTO `tbl_signup` (`id`, `username`, `birthday`, `email`, `password`) VALUES
-(13, 'admin', '2002-09-05', 'nguyenmanhtrung_t65@hus.edu.vn', '$2y$10$RyEkrJcIllPuzBsfktTs5u8ydx//nxGDyb4tblJWVcXNId55tALTm'),
-(14, 'NguyenTrung', '2002-09-05', 'trunggokuty123@gmail.com', '$2y$10$kcs2TYecbDMwZezOpsFJC.K5L0YLLcuHE5e0Yca6Kv0Oc9qybYwZ2'),
-(16, 'DuongDA', '2002-02-18', 'anhduong180202@gmail.com', '$2y$10$EH1K7hWp1v9KRER.dm78ReXo9afYCeE79D6w/h6eEocy3qove3BnS');
+(13, 'admin', '2002-09-05', 'nguyenmanhtrung_t65@hus.edu.vn', '$2y$10$DHDS8R.71UVX6cxtg8iPXuygfC7F10KpQARXbOMLUfLbi8UnGGhZi'),
+(14, 'NguyenTrung', '2002-09-05', 'trunggokuty123@gmail.com', 'ade2f8862a9bb3c634c2ba8949504aa9'),
+(16, 'DuongDA', '2002-02-18', 'anhduong180202@gmail.com', '$2y$10$EH1K7hWp1v9KRER.dm78ReXo9afYCeE79D6w/h6eEocy3qove3BnS'),
+(17, 'admin1', '2222-02-22', 'trunggoku123ty@gmail.com', '$2y$10$s8qb6t0bB5mFdczTmztybeSlvsQk5Gq1u7uFxgjboatoC/v/RjW/G');
 
 -- --------------------------------------------------------
 
@@ -317,19 +286,19 @@ ALTER TABLE `tbl_danhmuc`
 -- AUTO_INCREMENT for table `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  MODIFY `id_donhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id_donhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT for table `tbl_giohang_dathanhtoan`
 --
 ALTER TABLE `tbl_giohang_dathanhtoan`
-  MODIFY `id_dathang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id_dathang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `tbl_review`
@@ -347,7 +316,7 @@ ALTER TABLE `tbl_sanpham`
 -- AUTO_INCREMENT for table `tbl_signup`
 --
 ALTER TABLE `tbl_signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_tintuc`
