@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require("../../../pages/Password-reset/password-reset-code.php");
 include('../../../admincp/config/config.php');
 $city = '';
