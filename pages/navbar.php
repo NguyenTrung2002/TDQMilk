@@ -16,12 +16,13 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="/TDQMilk/danhmuc/index.php">Danh mục sản phẩm<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="text-align: center;">
                         <?php
                         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
                         ?>
                             <li class="nav-item">
                                 <a class="dropdown-item" aria-current="page" href="/TDQMilk/danhmuc/index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['ten_danhmuc'] ?></a>
+                                <li class="divider"></li>
                             </li>
                         <?php
                         }
@@ -33,21 +34,24 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 <li><a href="/TDQMilk/index.php#tintuc">Tin tức</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <?php if (isset($_SESSION['login'])) { ?>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle">
+                            <span style="color:green; font-weight: 600;">Xin chào:</span> <span style="color:red; font-weight: 600;"><?php echo $_SESSION['login'] ?></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/TDQMilk/pages/Update-information/userProfile.php"><span class="glyphicon glyphicon-edit"></span> Sửa thông tin</a></li>
+                            <?php if ($_SESSION['login'] == 'admin') { ?>
+                                <li class="divider"></li>
+                                <li><a href="/TDQMilk/admincp">Chuyển đến trang admin</a></li>
+                            <?php } ?>
+                            <li class="divider"></li>
+                            <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+                        </ul>
+                    </li>
                 <?php
-                if (isset($_SESSION['login'])) {
-                ?>
-                    <li><a href="/TDQMilk/danhmuc/index.php?quanly=giohang">Giỏ hàng</a></li>
-                    <li><a href="/TDQMilk/pages/Logout/logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
-                    <li><a href="/TDQMilk/pages/Update-information/userProfile.php"><span class="glyphicon glyphicon-edit"></span> Sửa thông tin </a></li>
-                    <?php
-                    if ($_SESSION['login'] == 'admin') {
-                    ?>
-                        <li><a href="/TDQMilk/admincp">Chuyển đến trang admin</a></li>
-                    <?php
-                    }
-                    ?>
-                <?php
-                    echo '<span style="color:green; position: relative; top: 14px"> Xin chào: </span>' . '<span style="color:red; position: relative; top: 14px">' . $_SESSION['login'] . '</span>';
                 } else {
                 ?>
                     <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button> -->
@@ -57,11 +61,11 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
                 }
                 ?>
             </ul>
-            <form class="navbar-form navbar-right" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
+            <form class="navbar-form" action="/TDQMilk/danhmuc/index.php?quanly=timkiem" method="POST">
+            <button type="submit" class="btn btn-default" name="timkiem">Tìm kiếm</button>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="tukhoa">
                 </div>
-                <button type="submit" class="btn btn-default" name="timkiem">Submit</button>
             </form>
         </div>
 
